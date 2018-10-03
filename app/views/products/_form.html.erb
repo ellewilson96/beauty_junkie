@@ -26,6 +26,6 @@
 
   <%= f.label :brand_id %>
   <%= f.collection_select(:brand_id, Brand.all, :id, :name, :prompt => 'Select') %>
-  
+
   <%= f.submit %>
   <% end %>
