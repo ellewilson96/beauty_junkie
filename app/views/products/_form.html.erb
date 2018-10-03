@@ -13,6 +13,7 @@
   </div>
 <% end %>
 
+
 <%= form_for(@product) do |f| %>
 
   <%= f.label :name %>
@@ -24,8 +25,13 @@
   <%= f.label :ingredient_list %>
   <%= f.text_field :ingredient_list %><br>
 
-  <%= f.label :brand_id %>
-  <%= f.collection_select(:brand_id, Brand.all, :id, :name, :prompt => 'Select') %>
+  <% f.fields_for :brands do |brand| %>
 
+    <%= brand.label :name, "Brand Name" %><br />
+    <%= f.collection_select(:brand_id, Brand.all, :id, :name, :prompt => 'Select') %>
+
+  <%= brand.link_to_remove "Remove this brand" %>
+    <% end %>
+  <%= brand.link_to_add "Add new brand" %>
   <%= f.submit %>
-  <% end %>
+<% end %>

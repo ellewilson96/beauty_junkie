@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   root to: 'application#home'
 
@@ -8,9 +7,18 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
+  resources :brands, only: [:new, :create]
+
   resources :reviews, only: [:index, :show] do
     resources :comments, only: [:index, :create]
   end
+
+    devise_for :users, controllers: {
+     sessions: 'users/sessions',
+     omniauth_callbacks: 'users/omniauth_callbacks'
+   }
+
+   resources :users, only: [:show]
 
   end
 

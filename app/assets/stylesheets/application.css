@@ -1,15 +1,146 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@media screen {
+  * {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  html, body {
+    text-align: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  body {
+   font-family: "Raleway", sans-serif;
+   line-height:  1.6;
+    background-color: grey;
+    background-size: 100%;
+    background-image: url('school-background.jpg');
+  }
+
+  a:link {
+      color: #003333;
+       text-decoration: none;
+  }
+
+  a:visited {
+    color: #001a1a;
+  }
+
+  a:hover {
+      color: #004d4d;
+  }
+
+  a:active {
+      color: #008080;
+  }
+
+  .wrapper {
+    background-color:#f7f6ea;
+    opacity: 0.8;
+    border: 25px;
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+    margin: 25px auto;
+    max-width: 960px;
+    padding: 2.25%; /* 18px / 800px */
+    width: 85%;
+  }
+
+  .body-wrapper {
+    background-color:#f7f6ea;
+    opacity: 0.8;
+    border: 25px;
+    -webkit-columns: 2 200px;
+      -moz-columns: 2 200px;
+           columns: 2 200px;
+    margin: 25px auto;
+    max-width: 960px;
+    padding: 2.25%; /* 18px / 800px */
+    width: 85%;
+    -webkit-column-gap: 4em;
+    -moz-column-gap: 4em;
+         column-gap: 4em;
+  }
+
+.topnav {
+    max-width: 100%;
+    height: auto;
+    padding: 100px 0 5px;
+    border: 1px solid gray;
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+    margin: 0 5px 0;
+    background-color:#f7f6ea;
+}
+
+.topnav a {
+  font-size: 100%;
+    margin-left: 15px;
+    border-right: 2px solid #bbb;
+    padding-right: 15px;
+}
+
+.topnav a:last-child {
+    margin-left: 15px;
+    border-right: none;
+    padding-right: 15px;
+}
+
+/* .school-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 10px 10px rgba(0,0,0,.3);
+    background-color: #006080;
+    opacity: 0.6;
+} */
+
+/*.school-text {
+  font-size: 26px;
+  font-family: "Raleway", sans-serif;
+  line-height:  1.6;
+  color: #ccffff;
+  text-align: right;
+  margin: 0px 20px 0;
+}*/
+
+/* .school-logged-in {
+  font-size: 15px;
+  font-style: italic;
+  font-family: "Raleway", sans-serif;
+  line-height:  1.6;
+  color: #ccffff;
+  text-align: left;
+  margin: 16px 10px 0;
+} */
+
+  .flash {
+    opacity: none;
+    box-shadow: 0 10px 10px rgba(0,0,0,.3);
+    font-family: "Raleway", sans-serif;
+    font-size: 110%;
+    background: #0000FF;
+    text-align:center;
+    color:white;
+  }
+  .error {
+    font-family: "Raleway", sans-serif;
+    color : red;
+    width: 100%;
+  }
+
+  .field_with_errors {
+      border: 1px solid red;
+      display: inline; 
+  }
+
+  p {
+    font-size: 90%;
+  }
+}
