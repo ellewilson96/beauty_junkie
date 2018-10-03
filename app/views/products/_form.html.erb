@@ -1,0 +1,31 @@
+<% if @product.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@product.errors.count, "error") %>
+      prohibited this post from being saved:
+    </h2>
+
+    <ul>
+    <% @product.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for(@product) do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %><br>
+
+  <%= f.label :ingredient_list %>
+  <%= f.text_field :ingredient_list %><br>
+
+  <%= f.label :brand_id %>
+  <%= f.collection_select(:brand_id, Brand.all, :id, :name, :prompt => 'Select') %>
+  
+  <%= f.submit %>
+  <% end %>

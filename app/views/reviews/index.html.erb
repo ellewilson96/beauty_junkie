@@ -1,0 +1,15 @@
+<div class="container">
+  <h2>This Product's Reviews</h2>
+    <% @reviews.each do |review| %>
+  <h3><%= review.title %> by <%= review.user.name %><br></h3>
+</div>
+
+<div><%= review.id %>
+  <a href="#" data-id="<%= review.id %>" class="review-details">View Full Review</a>
+
+</div>
+
+<% end %><br>
+      <%= link_to "Add a New Course", new_review_path %><br>
+    <%= link_to "Add a New Student", new_product_path %><br>
+  <%= link_to 'Back', reviews_path %>
