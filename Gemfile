@@ -23,6 +23,8 @@ gem 'active_model_serializers'
 
 gem 'simple_form'
 
+gem 'rails-ujs', '~> 5.1.0.beta1'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
