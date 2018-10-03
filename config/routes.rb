@@ -4,12 +4,12 @@ Rails.application.routes.draw do
   root to: 'application#home'
 
   resources :products do
-    resources :reviews
+    resources :reviews, only: [:new, :create]
   end
 
   resources :brands, only: [:new, :create]
 
-  resources :reviews, only: [:index, :show] do
+  resources :reviews do
     resources :comments, only: [:index, :create]
   end
 

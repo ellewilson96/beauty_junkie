@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   end
 
   def index
+    @brand = Brand.find_by(params[:brand_id])
     @products = Product.all
     respond_to do |format|
      format.html

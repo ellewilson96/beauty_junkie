@@ -1,7 +1,5 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_product
-  before_action :set_review, only: [:show, :edit, :update, :destroy]
 
   def new
     @review = @product.reviews.new
@@ -59,14 +57,7 @@ end
   private
 
   def reviews_params
-    params.require(:review).permit(:name, :product_id, product_reviews_attributes: [:product_id, :user_id, :title, :body])
+    params.require(:review).permit(:name, :product_id)
   end
 
-  def set_product
-      @product = Product.find(params[:product_id])
-    end
-
-    def set_review
-      @review = Review.find(params[:id])
-    end
 end

@@ -1,0 +1,13 @@
+<div class="container">
+  <h2>All Products</h2>
+    <% @products.each do |product| %>
+  <h3><%= product.name %> by <%= @brand.name %><br></h3>
+</div>
+<div><%= product.id %>
+  <a href="#" data-id="<%= product.id %>" class="product-details">View Full Review</a>
+</div>
+<% end %><br>
+<div class="footer-links">
+  <%= link_to "Add a New Product", new_product_path %><br>
+  <%= link_to 'Back', products_path %>
+</div>

@@ -1,7 +1,14 @@
-<h2><%= @review.title %></h2>
+
+  <h2><%= @review.title %></h2>
 <br>
-<h3><%= @review.body %></h3>
+  <h3><%= @review.body %></h3>
 
+  <% @review.comments.each do |comment| %>
+  <%= comment.created_at %> by <%= comment.user.email %>
+  <br>
+  <%= comment.body %>
+  <% end %>
 
-  <%= link_to "Add a New Product", new_product_path %><br>
+<%= render 'comments/form' %>
+
 <%= link_to 'Back', reviews_path %>

@@ -16,22 +16,17 @@
 
 <%= form_for(@product) do |f| %>
 
-  <%= f.label :name %>
+  <%= f.label :name %>:
   <%= f.text_field :name %><br>
 
-  <%= f.label :description %>
+  <%= f.label :description %>:
   <%= f.text_field :description %><br>
 
-  <%= f.label :ingredient_list %>
+  <%= f.label :ingredient_list %>:
   <%= f.text_field :ingredient_list %><br>
 
-  <% f.fields_for :brands do |brand| %>
+  <%= f.label :name, "Brand Name" %>:
+  <%= f.collection_select(:brand_id, Brand.order('name ASC').all, :id, :name, :prompt => 'Please Select') %><br>
 
-    <%= brand.label :name, "Brand Name" %><br />
-    <%= f.collection_select(:brand_id, Brand.all, :id, :name, :prompt => 'Select') %>
-
-  <%= brand.link_to_remove "Remove this brand" %>
-    <% end %>
-  <%= brand.link_to_add "Add new brand" %>
   <%= f.submit %>
 <% end %>
