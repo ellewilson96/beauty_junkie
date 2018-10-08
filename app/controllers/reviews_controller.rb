@@ -1,28 +1,25 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!
 
-  def new
-    @review = @product.reviews.new
-  end
-
   def index
-    @reviews = current_user.reviews.order('created_at DESC')
+    @product = Product.find_by(params[:product_id])
+    @reviews = Review.all
   end
 
 
   def create
-    @review = @product.reviews.create(reviews_params)
+    @product = Product.find(params[:product_id])
+    @review = @product.reviews.build(reviews_params)
     if @review.save
-      redirect_to product_reviews_path(@product, @reviews)
+      redirect_to product_reviews_path(@product)
     else
       render :new
     end
   end
 
   def show
+    @product = Product.find(params[:product_id])
     @user = current_user
-    @product = Product.find(params[:id])
-    @reviews = @product.product_reviews
     @comment = @review.comments
     @comment = Comment.new
       respond_to do |format|
@@ -57,7 +54,8 @@ end
   private
 
   def reviews_params
-    params.require(:review).permit(:name, :product_id)
+    params.require(:review).permit(:title, :body)
   end
+
 
 end

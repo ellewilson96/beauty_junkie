@@ -1,6 +1,5 @@
 class Product < ActiveRecord::Base
-  has_many :product_reviews
-  has_many :reviews, through: :product_reviews
+  has_many :reviews
   belongs_to :brand
   accepts_nested_attributes_for :brand
 

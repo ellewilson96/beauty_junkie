@@ -1,7 +1,6 @@
 class Review < ActiveRecord::Base
   belongs_to :user
-  has_many :product_reviews
-  has_many :products, through: :product_reviews
+  belongs_to :product
   has_many :comments
 
   validates :body, presence: true

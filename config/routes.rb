@@ -5,13 +5,13 @@ Rails.application.routes.draw do
   root to: 'application#home'
 
   resources :products do
-    resources :reviews, only: [:new, :create]
+    resources :reviews, only: [:index, :new, :create]
   end
 
   resources :brands, only: [:new, :create]
 
   resources :reviews do
-    resources :comments, only: [:index, :create]
+    resources :comments
   end
 
     devise_for :users, controllers: {

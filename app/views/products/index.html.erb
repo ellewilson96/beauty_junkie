@@ -1,13 +1,22 @@
-<div class="container">
-  <h2>All Products</h2>
+  <h2>Newest Products</h2><br>
+  <div class="product-container">
+
     <% @products.each do |product| %>
-  <h3><%= product.name %> by <%= @brand.name %><br></h3>
-</div>
-<div><%= product.id %>
-  <a href="#" data-id="<%= product.id %>" class="product-details">View Full Review</a>
-</div>
-<% end %><br>
+
+    <div class="product-title">
+
+  <h3><%= product.name %> by <%= product.brand.name %><br></h3>
+  </div>
+  <div class="product-description-preview">
+    <%= product.description %>
+    <div class="load_description">
+      <a href="#" id="load_description">View More</a>
+    </div>
+  </div>
+<% end %>
+<br>
 <div class="footer-links">
   <%= link_to "Add a New Product", new_product_path %><br>
+  <%= link_to "Find a Product To Review", products_path %><br>
   <%= link_to 'Back', products_path %>
 </div>

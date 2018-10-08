@@ -1,4 +1,5 @@
-<% if @review.errors.any? %>
+<h2>Write a Review for <%= @product.brand.name %>'s <%= @product.name %></h2>
+  <% if @review.errors.any? %>
   <div id="error_explanation">
     <h2>
       <%= pluralize(@review.errors.count, "error") %>
@@ -13,11 +14,11 @@
 <div class="review_form">
   <h4><%= form_for @review do |f| %>
 
-  <%= f.label :title %>
+  <%= f.label :title %>:
   <%= f.text_field :title %><br>
 
-  <%= f.label :body %>
-  <%= f.text_field :body %><br>
+  <%= f.label :body %>:
+  <%= f.text_area :body %><br>
 
   <%= f.submit %>
   <% end %>
