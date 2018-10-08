@@ -48,6 +48,7 @@
   .flex-column--right {
       width: 90%;
       background-color:#ffffff;
+      align-items: right;
       opacity: 0.8;
       border: 10px solid #444444;
       -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -130,7 +131,22 @@
   }
 
 /* text formatting */
-  p {
-    font-size: 90%;
-  }
+div .review-container {
+  border: 1px solid red;
+}
+
+.review-header {
+  color: red;
+  border: 1px solid red;
+}
+
+.review-preview {
+   margin:20px;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 3;
+   -webkit-box-orient: vertical;
+}
+
 }

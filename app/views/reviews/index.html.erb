@@ -1,17 +1,16 @@
-
 <div class="reviews-container">
   <div class="reviews-header">
-  <h2> Reviews for <%= @product.name %></h2>
+  <h2> Reviews for <%= @product.name %></h2><br>
+
     <% @reviews.each do |review| %>
-  <h3><%= review.title %> by <%= review.user.name %><br></h3>
+  <h3><%= review.title %> by <%= review.user.email %><br></h3>
 </div>
 
-<div class="review-preview"><%= review.id %>
-  <a href="#" data-id="<%= review.id %>" class="review-details">View Full Review</a>
+<div class="review-preview"><%= review.body %>
 </div>
-
+<a href="#" class="review-details">View Full Review</a>
+<br><br>
 <% end %>
-
   <div class="review-new">
     <%= link_to "Write a New Review", new_product_review_path %>
   </div>
@@ -21,3 +20,4 @@
 <div class="footer-links">
   <%= link_to "Explore Products", products_path %>
   <%= link_to 'Back', reviews_path %>
+</div>
