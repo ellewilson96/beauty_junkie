@@ -1,3 +1,4 @@
+
 @media screen {
   * {
     list-style: none;
@@ -5,122 +6,108 @@
     padding: 0;
   }
 
-
   html, body {
     text-align: center;
     height: 100%;
     width: 100%;
+    background-image: url('marble-background.jpg');
+    background-size: 100% auto;
   }
 
-  body {
-   font-family: "Raleway", sans-serif;
-   line-height:  1.6;
-    background-color: grey;
-    background-size: 100%;
-    background-image: url('school-background.jpg');
+  .flex-body {
+    display: flex;
+    align-items: center;
+    align-content: stretch;
+    width: 95%;
+    flex-direction: row;
+    flex-wrap: row wrap;
   }
 
-  a:link {
-      color: #003333;
-       text-decoration: none;
+  .flex-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: stretch;
+    width: 50%;
+    flex-direction: column;
+    flex-wrap: column wrap;
   }
 
-  a:visited {
-    color: #001a1a;
-  }
-
-  a:hover {
-      color: #004d4d;
-  }
-
-  a:active {
-      color: #008080;
-  }
-
-  .wrapper {
-    background-color:#f7f6ea;
+.flex-column {
+    width: auto;
+    justify-content: center;
+    background-color:#444444;
     opacity: 0.8;
     border: 25px;
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    box-shadow: 0 0 10px rgba(0,0,0,.3);
-    margin: 25px auto;
-    max-width: 960px;
+    margin: 10px auto;
     padding: 2.25%; /* 18px / 800px */
-    width: 85%;
   }
 
-  .body-wrapper {
-    background-color:#f7f6ea;
-    opacity: 0.8;
-    border: 25px;
-    -webkit-columns: 2 200px;
-      -moz-columns: 2 200px;
-           columns: 2 200px;
-    margin: 25px auto;
-    max-width: 960px;
-    padding: 2.25%; /* 18px / 800px */
-    width: 85%;
-    -webkit-column-gap: 4em;
-    -moz-column-gap: 4em;
-         column-gap: 4em;
-  }
+  .flex-column--right {
+      width: 90%;
+      height: auto;
+      background-color:#444444;
+      opacity: 0.8;
+      border: 25px;
+      -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+      -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+      margin: 10px auto;
+      padding: 2.25%; /* 18px / 800px */
+    }
+
 
 .topnav {
-    max-width: 100%;
-    height: auto;
-    padding: 100px 0 5px;
-    border: 1px solid gray;
-    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    box-shadow: 0 0 10px rgba(0,0,0,.3);
-    margin: 0 5px 0;
-    background-color:#f7f6ea;
+   background-image: url('marble-banner.jpg');
+   background-size: 100%;
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
+   background-color: #333;
 }
 
-.topnav a {
-  font-size: 100%;
-    margin-left: 15px;
-    border-right: 2px solid #bbb;
-    padding-right: 15px;
+.topnav-items {
+    display:inline-block;
+    float: left;
+    margin-right: 1px;
+    cursor: default;
+
 }
 
-.topnav a:last-child {
-    margin-left: 15px;
-    border-right: none;
-    padding-right: 15px;
+.nav-link {
+    display: inline-block;
+    background: #262626;
+    border: 1px solid #dcdcdc;
+    margin-top: 90px;
+    opacity: 0.8;
 }
 
-/* .school-banner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    box-shadow: 0 10px 10px rgba(0,0,0,.3);
-    background-color: #006080;
-    opacity: 0.6;
-} */
+.nav-link a {
+    display: inline-block;
+    min-width:140px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-family: "Raleway", sans-serif;
+    color: #EDEBEB;
+    text-decoration: none;
+}
 
-/*.school-text {
-  font-size: 26px;
-  font-family: "Raleway", sans-serif;
-  line-height:  1.6;
-  color: #ccffff;
-  text-align: right;
-  margin: 0px 20px 0;
-}*/
+.nav-link:hover a {
+    background: #f7f6ea;
+    opacity: 0.8;
+    color: #262626
+  }
 
-/* .school-logged-in {
-  font-size: 15px;
-  font-style: italic;
-  font-family: "Raleway", sans-serif;
-  line-height:  1.6;
-  color: #ccffff;
-  text-align: left;
-  margin: 16px 10px 0;
-} */
+.topnav-items--right {
+  max-height: 150px;
+  float:right;
+  content:url('banner-logo.png');
+}
 
-  .flash {
+.flash {
     opacity: none;
     box-shadow: 0 10px 10px rgba(0,0,0,.3);
     font-family: "Raleway", sans-serif;

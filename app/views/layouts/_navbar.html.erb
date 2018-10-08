@@ -1,24 +1,28 @@
 <div class="topnav" id="myTopnav">
-
+   <nav class="topnav-items">
     <% if user_signed_in? %>
 
-        <a class="nav-link" <%= link_to 'Log Out', destroy_user_session_path, method: :delete %></a>
+        <div class="nav-link"> <%= link_to 'Log Out', destroy_user_session_path, method: :delete %></div>
 
-        <a class="nav-link" <%= link_to "Home", root_path %></a>
+        <div class="nav-link"> <%= link_to "Home", root_path %></div>
 
-        <a class="nav-link" <%= link_to "Products", products_path, class: 'all_products' %></a>
+        <div class="nav-link"> <%= link_to "Products", products_path, class: 'all_products' %></div>
 
-        <a class="nav-link" <%= link_to "Reviews", reviews_path, class: 'all_reviews' %></a>
+        <div class="nav-link"> <%= link_to "Reviews", reviews_path, class: 'all_reviews' %></div>
 
-        <a class="nav-link" <%= link_to "My Profile", user_path(current_user.id) %></a>
+        <div class="nav-link"> <%= link_to "My Profile", user_path(current_user.id) %></div>
 
         <% else %>
 
-        <a class="nav-link" <%= link_to "Sign In With Facebook", user_facebook_omniauth_authorize_path %></a>
+        <div class="nav-link"> <%= link_to "Sign In With Facebook", user_facebook_omniauth_authorize_path %></div>
 
-        <a class="nav-link" <%= link_to 'Sign Up', new_user_registration_path %></a>
+        <div class="nav-link"> <%= link_to 'Sign Up', new_user_registration_path %></div>
 
-        <a class="nav-link" <%= link_to 'Log In', new_user_session_path %></a>
+        <div class="nav-link"> <%= link_to 'Log In', new_user_session_path %></div>
 
   <% end %>
+  </nav>
+  <nav class="topnav-items--right">
+      <div class="logo"><%= link_to 'Home', root_path %></div>
+</nav>
 </div>
