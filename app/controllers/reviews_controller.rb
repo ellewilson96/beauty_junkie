@@ -7,7 +7,8 @@ class ReviewsController < ApplicationController
  end
 
   def index
-    @products = Product.all
+    @product = Product.find(params[:product_id])
+    @reviews = @product.reviews
   end
 
  def create
