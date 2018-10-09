@@ -21,8 +21,7 @@ class ReviewsController < ApplicationController
    end
 
   def show
-    @product = Product.find_by(params[:product_id])
-    @user = current_user
+    @review = Review.find(params[:id])
     @comment = @review.comments
     @comment = Comment.new
   end
