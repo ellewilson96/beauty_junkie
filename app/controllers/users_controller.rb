@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def show
-    @review = @product
+    @review = Review.find(params[:id])
     @product = Product.find(params[:id])
   end
 

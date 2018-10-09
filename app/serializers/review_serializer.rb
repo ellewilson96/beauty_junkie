@@ -1,7 +1,8 @@
 class ReviewSerializer < ActiveModel::Serializer
-  attributes :product_id, :title, :body
+  attributes :id, :title, :body, :user_id, :product_id
+
   belongs_to :user
-  belongs_to :product
+  belongs_to :product, only: [:brand_id]
   has_many :comments
 
 end

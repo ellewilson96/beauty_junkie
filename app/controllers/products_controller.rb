@@ -8,11 +8,17 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+   respond_to do |f|
+     f.html
+     f.json {render json: @products}
   end
+end
 
   def show
-    @product = Product.find_by(params[:id])
-    @reviews = @product.reviews
+    respond_to do |f|
+    f.html
+    f.json {render json: @product}
+  end
   end
 
   def create
@@ -23,6 +29,7 @@ class ProductsController < ApplicationController
       render :new
     end
   end
+
 
   def destroy
     @product.destroy
