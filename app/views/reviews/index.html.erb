@@ -1,23 +1,22 @@
 <div class="reviews-container">
   <div class="reviews-header">
-  <h2> Reviews for <%= @product.name %></h2><br>
-
-    <% @reviews.each do |review| %>
-  <h3><%= review.title %> by <%= review.user.email %><br></h3>
+    <% @products.each do |product| %>
+  <h2> Reviews for <%= product.name %> by <%= product.brand.name %></h2><br>
+    <% product.reviews.each do |review| %>
+  <h3><%= review.title %></h3><p>by <%= review.user.email %></p>
 </div>
-
 <div class="review-preview"><%= review.body %>
 </div>
 <a href="#" class="review-details">View Full Review</a>
-<br><br>
 <% end %>
+<br><br>
   <div class="review-new">
-    <%= link_to "Write a New Review", new_product_review_path %>
+    <%= link_to "Write a New Review", new_product_review_path(product.id) %>
   </div>
-
+  <% end %>
 </div>
 
 <div class="footer-links">
   <%= link_to "Explore Products", products_path %>
-  <%= link_to 'Back', reviews_path %>
+  <%= link_to 'Back', root_path %>
 </div>

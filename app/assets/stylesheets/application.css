@@ -10,9 +10,66 @@
     text-align: center;
     height: 100%;
     width: 100%;
-    background-image: url('marble-background.jpg');
-    background-size: 100% auto;
+
   }
+
+  body {
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.6;
+    background-image: url('marble-background.jpg');
+    background-size: 130%;
+  }
+
+h1 {
+  text-align: center;
+  line-height: 50px;
+  font-family: "Raleway", sans-serif;
+  color: #EDEBEB;
+  text-decoration: none;
+}
+
+h2 {
+  text-align: center;
+  line-height: 65px;
+  font-family: "Raleway", sans-serif;
+  color: #EDEBEB;
+  background-color: #262626;
+  padding: 0 10px 0;
+  text-decoration: none;
+}
+
+h3 {
+  text-align: center;
+  line-height: 30px;
+  font-weight: 100;
+  font-family: "Raleway", sans-serif;
+  color: #EDEBEB;
+  background-color: #505050;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+h3 a {
+  color: #EDEBEB;
+}
+
+h4 {
+  font-family: 'Raleway', sans-serif;
+  line-height: 1.4;
+}
+
+p {
+  text-align: center;
+  line-height: 18px;
+  font-weight: 100;
+  font-family: "Raleway", sans-serif;
+  color: #262626;
+  background-color: #EEEEEE;
+  padding-top: 5px;
+  text-decoration: none;
+  font-style: italic;
+  font-size: 15px;
+}
 
 /* layout */
   .flex-body {
@@ -46,7 +103,7 @@
   }
 
   .flex-column--right {
-      width: 90%;
+      width: 95%;
       background-color:#ffffff;
       align-items: right;
       opacity: 0.8;
@@ -108,6 +165,24 @@
     color: #262626
   }
 
+.footer-links {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: #171515;
+}
+
+.footer-links a {
+  display: flex;
+  margin-left: 10px;
+  margin-right: auto;
+  line-height: 30px;
+  font-weight: 100;
+  font-family: "Raleway", sans-serif;
+  color: #EDEBEB;
+  text-decoration: none;
+}
+
 /* errors and alerts */
 .flash {
     opacity: none;
@@ -131,22 +206,5 @@
   }
 
 /* text formatting */
-div .review-container {
-  border: 1px solid red;
-}
-
-.review-header {
-  color: red;
-  border: 1px solid red;
-}
-
-.review-preview {
-   margin:20px;
-   overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-line-clamp: 3;
-   -webkit-box-orient: vertical;
-}
 
 }

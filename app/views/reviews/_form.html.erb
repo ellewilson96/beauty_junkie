@@ -1,4 +1,3 @@
-<h2>Write a Review for <%= @product.brand.name %>'s <%= @product.name %></h2>
   <% if @review.errors.any? %>
   <div id="error_explanation">
     <h2>
@@ -9,8 +8,10 @@
     <li><%= msg %></li>
     <% end %>
   </div>
-<% end %><br>
-
+<% end %>
+<br>
+<h2>Write a Review for <%= @product.brand.name %>'s <i><%= @product.name %></i></h2>
+<br>
 <div class="review_form">
   <h4><%= form_for @review do |f| %>
 

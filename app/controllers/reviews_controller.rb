@@ -1,15 +1,13 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def new
+    @review = Review.new
     @product = Product.find(params[:product_id])
-    @review = current_user.reviews.build
  end
 
   def index
-    @product = Product.find(params[:product_id])
-    @reviews = Review.all
+    @products = Product.all
   end
 
  def create
@@ -21,8 +19,8 @@ class ReviewsController < ApplicationController
      end
    end
 
-
   def show
+    @product = Product.find_by(params[:product_id])
     @user = current_user
     @comment = @review.comments
     @comment = Comment.new
@@ -44,7 +42,7 @@ end
   def destroy
     @review = Review.find(params[:id])
     @review.delete
-    redirect_to product_reviews_path(@product, @reviews)
+    redirect_to product_reviews_path(@product)
   end
 
 
@@ -54,8 +52,5 @@ end
     params.require(:review).permit(:title, :body)
   end
 
-  def set_review
-   @review = Review.find(params[:id])
- end
 
 end
