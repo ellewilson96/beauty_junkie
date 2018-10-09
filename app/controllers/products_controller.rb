@@ -4,20 +4,22 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @products = Product.all
+    render layout: false
   end
 
   def index
     @products = Product.all
    respond_to do |f|
      f.html
-     f.json {render json: @products}
+     f.json {render json: @products, layout: false}
   end
 end
 
   def show
     respond_to do |f|
     f.html
-    f.json {render json: @product}
+    f.json {render json: @product, layout: false}
   end
   end
 

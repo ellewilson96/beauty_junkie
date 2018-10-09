@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!
 
   def new
+    @product = Product.find(params[:product_id])
     @review = Review.new
  end
 
@@ -14,13 +15,12 @@ class ReviewsController < ApplicationController
   end
 
   def create
-     @review = Review.new(review_params)
-     @user = User.find(params[:user_id])
-
-     if @review.save
-       render :index
+    @review = current_user.reviews.build(review_params)
+         if @review.save
+       render json: @review, status: 201
      else
-       @error = @review.errors.full_messages
+         flash[:message] = @review.errors.full_messages
+       render json: {errors: @review.errors.full_messages}, status: 400
      end
    end
 
@@ -39,15 +39,18 @@ class ReviewsController < ApplicationController
   end
 
   def update
+    @url = product_review_path
     @review = Review.find(params[:id])
-      if @review.user = current_user
-        if @review.update(review_params)
-          redirect_to @review
-        else
-    render :edit
-      end
+    if @review.user_id = current_user.id
+      @review.update_attributes(review_params)
+      @review.save
+      redirect_to products_path
+    else
+      @review.errors.add(:base, "You must be the original creator to make changes
+      to this review.")
+      render :edit
+    end
   end
-end
 
   def destroy
     @review = Review.find(params[:id])

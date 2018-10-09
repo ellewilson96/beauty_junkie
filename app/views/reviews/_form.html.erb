@@ -1,18 +1,7 @@
-  <%= form_for @review do |f| %>
-  <% if @review.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= pluralize(@review.errors.count, "error") %>
-      prohibited this post from being saved:
-    </h2>
-    <% @review.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </div>
-<% end %>
-<br>
+
 <h2>Write a Review for <%= @product.brand.name %>'s <i><%= @product.name %></i></h2>
 <br>
+<%= form_for @review do |f| %>
 <div class="review_form">
   <h4>
 

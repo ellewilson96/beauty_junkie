@@ -3,9 +3,14 @@
 <h2><%= product.brand.name %></h2>
   <h3><%= product.name %></h3>
     <p><%= product.description %></p>
-      <h3><a href="#" id="product-details">View Full Details</a><a href="#" id="hide-details" class="hide-details"></a>  |  <%= link_to "#{ product.reviews.length } Reviews", product_reviews_path(product.id)%>    |   <%= link_to "Write a Review", new_product_review_path(product.id) %></h3>
+
+    <div class="ingredients-<%=product.id%>"></div>
+    <a class="load-ingredients" href="/products/<%=product.id%>">Product Ingredients</a>
+      |  <%= link_to "#{ product.reviews.length } Reviews", product_reviews_path(product.id)%>
+          |   <%= link_to "Write a Review", new_product_review_path(product.id) %></h3>
 <br>
 <% end %>
+<h3>
 <br>
 <div class="footer-links">
   <%= link_to "Add a New Product", new_product_path %><br>
