@@ -3,11 +3,12 @@
   <% else %>
   <h2><%= brand.name %><br></h2>
   <% brand.products.each do |product| %>
-    <ol>
-      <li><div class="load_product_names">
-        <h3><a href="/products/<%=product.id%>"><%= product.name %></a></h3></div>
-      </li>
-    </ol>
+
+      <h3><div class="load_product_names">
+        <a href="/products/<%=product.id%>"><%= product.name %></a></div>
+      </h3>
     <% end %>
+    <br>
+
   <% end %>
 <% end %>

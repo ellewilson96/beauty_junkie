@@ -1,10 +1,9 @@
 //REQUIREMENTS
 
 // Brands index page lists 3 products names at a time for each brand -> clicking on name renders product show page
-    //names can be shown and hidden 
+    //names can be shown and hidden
 
 //Products index page
-
 //Load ingredient list for each product on product show page
 
 //Load list of review titles for each product on product show page that link to each review (redirect to review show page)
@@ -12,17 +11,24 @@
 //load comments on review show page
 //submit new comment on review show page with dynamic form
 
+//Load review index page on home page but in order of date created
+//Load review show page on home page
 
+//load products index page into page-body div on home page
+//load brands index page into page-body div on home page
 
 
 $(function(){
-  $('a.load-ingredients').on('click', function(e) {
-
-    $.get('/products' + $(this).attr("href") +".json", function(data) {
-        const productHtml = data.ingredient_list
-        const id = data.id
-        $('div.ingredients-'+id).append(productHtml)
+  $('a.all-products').on('click', function(e) {
+    $('div.page-body').html("")
+    $.get(this.href+'.json', function(data) {
+      data.forEach(product => {
+        let productHtml = `
+          <h3><a href="/products/${product.id}">${product.name}</a> by <a href="/brands/${product.brand.id}">${product.brand.name}</a>  </h3>
+            <p> ${product.description} </p><br>`
+        $('div.page-body').append(productHtml)
+      })
+    })
+    e.preventDefault();
   })
-  e.preventDefault();
-})
 })

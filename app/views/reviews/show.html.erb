@@ -2,30 +2,34 @@
 
 <div class="review-container">
   <div class="review-header">
-  <h2><%= @review.title %></h2>
-  <h3>written by <%= @review.user.email %></h3>
+    <h2><%= @review.title %></h2>
+      <h3>written by <%= @review.user.email %></h3>
 </div>
   <p>
-    <div class="review-body">
-    <%= @review.body %></p>
+  <div class="review-body">
+      <%= @review.body %></p>
   </div>
-</div>
-
-<div id="new-comment">
-<%= form_for(@comment, :url => review_comments_path(@review)) do |f|  %>
-  <%= f.text_area :content %>
-
-  <p><%= f.submit %></p>
-<% end %>
 
 <div class="comments">
-  <ol>
-  </ol>
+  <%= render 'comments/comments' %>
 </div>
 
+<div id="load-comments">
+  <a href="#" class="load-comments">Show all comments</a>
 </div>
 
+<h3>
+  <div id="new-comment">
+      <%= form_for(@comment, :url => review_comments_path(@review)) do |f|  %>
+      <%= f.text_area :content %>
 
+      <p><%= f.submit %></h3></p>
+      <% end %>
+    </div>
 
-<%= link_to 'Edit', edit_review_path(@review) %> |
+<% if current_user.id = @review.user_id %>
+<%= link_to 'Edit Review', edit_review_path(@review) %>
+<% else %>
+<% end %> |
 <%= link_to 'Back', reviews_path %>
+</div>

@@ -6,11 +6,11 @@
 
         <div class="nav-link"> <%= link_to "Home", root_path %></div>
 
-        <div class="nav-link"> <%= link_to "Latest Products", products_path, class: 'all_products' %></div>
+        <div class="nav-link"> <%= link_to "Products", products_path, class: 'all-products' %></div>
 
-        <div class="nav-link"> <%= link_to "Brands", brands_path, class: 'all_products' %></div>
+        <div class="nav-link"> <%= link_to "Brands", brands_path, class: 'all-brands' %></div>
 
-        <div class="nav-link"> <%= link_to "My Profile", user_path(current_user.id) %></div>
+        <div class="nav-link"> <%= link_to "My Profile", user_path(current_user.id), class: 'user-profile' %></div>
 
         <% else %>
 
@@ -37,4 +37,5 @@
       <iframe src="https://www.youtube.com/embed/videoseries?list=PL855S-vac7veZyrHtHb88S8oEbJGYaSEZ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
   </div>
+
   <div class="flex-column--right">

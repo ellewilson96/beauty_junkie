@@ -2,6 +2,10 @@ class BrandsController < ApplicationController
 
   def index
     @brands = Brand.all
+    respond_to do |f|
+      f.html
+      f.json {render json: @brands, layout: false}
+   end
   end
 
   def new
@@ -21,7 +25,7 @@ class BrandsController < ApplicationController
   private
 
   def brand_params
-    params.require(:brand).permit(:name)
+    params.require(:brand).permit(:name, products_attributes: [:brand_id, :name, :description, :ingredient_list])
   end
 
 end

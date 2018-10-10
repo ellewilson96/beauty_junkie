@@ -4,10 +4,17 @@
     <title>Beauty Junkie</title>
   </head>
   <body>
-    <%= render 'layouts/navbar' %>
-<div class="page-body" id="page-body">
+<%= render 'layouts/navbar' %>
+
+<div class="page-body">
   <%= yield %>
-</div>
+
+  <div class="products">
+  </div>
+
+  <div class="brands">
+  </div>
+  </div>
 
 <%= stylesheet_link_tag    'application', media: 'all' %>
 <%= javascript_include_tag 'application' %>
