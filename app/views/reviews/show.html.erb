@@ -11,15 +11,20 @@
   </div>
 </div>
 
-<div class="comments">
-  <%= render 'comments/comments' %>
-</div>
-
+<div id="new-comment">
 <%= form_for(@comment, :url => review_comments_path(@review)) do |f|  %>
   <%= f.text_area :content %>
 
   <p><%= f.submit %></p>
 <% end %>
+
+<div class="comments">
+  <ol>
+  </ol>
+</div>
+
+</div>
+
 
 
 <%= link_to 'Edit', edit_review_path(@review) %> |

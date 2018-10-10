@@ -5,12 +5,11 @@
     <p><%= product.description %></p>
 
     <div class="ingredients-<%=product.id%>"></div>
-    <a class="load-ingredients" href="/products/<%=product.id%>">Product Ingredients</a>
+    <a class="load-ingredients" href="/<%=product.id%>">Product Ingredients</a>
       |  <%= link_to "#{ product.reviews.length } Reviews", product_reviews_path(product.id)%>
           |   <%= link_to "Write a Review", new_product_review_path(product.id) %></h3>
 <br>
 <% end %>
-<h3>
 <br>
 <div class="footer-links">
   <%= link_to "Add a New Product", new_product_path %><br>

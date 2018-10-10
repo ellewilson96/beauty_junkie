@@ -1,8 +1,9 @@
 <h2>Your Product Reviews</h2>
 
-<h3><%= @review.created_at %></h3><%= @product.name %> by <%= @product.brand.name %><br>
-<h3>  <%= @review.title %></h3>
-<p><%= @review.body %></p>
-
-<h3><%= link_to "Edit Review", edit_review_path(@review.id) %>
+<% @reviews.each do |review| %>
+<h3><%= review.created_at %></h3><%= @product.name %> by <%= @product.brand.name %><br>
+<h3>  <%= review.title %></h3>
+<p><%= review.body %></p>
+<h3><%= link_to "Edit Review", edit_review_path(review.id) %>
+  <% end %>
 </h3>

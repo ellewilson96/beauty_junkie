@@ -5,7 +5,6 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @products = Product.all
-    render layout: false
   end
 
   def index

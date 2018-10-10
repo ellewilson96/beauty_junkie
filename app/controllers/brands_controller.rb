@@ -1,7 +1,11 @@
 class BrandsController < ApplicationController
 
+  def index
+    @brands = Brand.all
+  end
+
   def new
-    @brand = Brand.new(brand_params)
+    @brand = Brand.new
   end
 
   def create
@@ -13,7 +17,7 @@ class BrandsController < ApplicationController
       end
     end
     #render json: @product, status: 201
-  end
+
   private
 
   def brand_params

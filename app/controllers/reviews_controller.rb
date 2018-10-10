@@ -1,46 +1,46 @@
 class ReviewsController < ApplicationController
+  before_action :set_product, only: [:new, :index, :create, :edit]
+  before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
   def new
-    @product = Product.find(params[:product_id])
     @review = Review.new
  end
 
   def index
-    @product = Product.find(params[:product_id])
+    @reviews = current_user.reviews
     respond_to do |f|
      f.html
      f.json {render json: @reviews}
    end
   end
 
-  def create
-    @review = current_user.reviews.build(review_params)
-         if @review.save
-       render json: @review, status: 201
-     else
-         flash[:message] = @review.errors.full_messages
-       render json: {errors: @review.errors.full_messages}, status: 400
-     end
-   end
 
   def show
-    respond_to do |f|
-    f.html
-    f.json {render json: @review}
-  end
     @comments = @review.comments
-    @comment = Comment.new
-  end
+    @comment = @review.comments.build
+ end
+
+
+  def create
+    @review = current_user.reviews.build(review_params)
+
+      respond_to do |f|
+        if @review.save
+        f.html { redirect_to @review, notice: 'Post was successfully created.' }
+         f.json { render :show, status: :created, location: @review }
+     else
+        f.html { render :new }
+        f.json { render json: @review.errors, status: :unprocessable_entity }
+      end
+    end
+   end
+
 
   def edit
-    @review = Review.find(params[:id])
-    @product = Product.find(params[:id])
   end
 
   def update
-    @url = product_review_path
-    @review = Review.find(params[:id])
     if @review.user_id = current_user.id
       @review.update_attributes(review_params)
       @review.save
@@ -53,7 +53,6 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = Review.find(params[:id])
     @review.delete
     redirect_to product_reviews_path(@product)
   end
@@ -61,8 +60,16 @@ class ReviewsController < ApplicationController
 
   private
 
+  def set_review
+    @review = Review.find(params[:id])
+  end
+
+  def set_product
+    @product = Product.find_by(params[:product_id])
+  end
+
   def review_params
-    params.require(:review).permit(:title, :body)
+    params.require(:review).permit(:title, :body, :product_id)
   end
 
 

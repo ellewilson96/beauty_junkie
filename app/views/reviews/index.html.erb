@@ -6,7 +6,8 @@
 </div>
 <div class="review-preview"><%= review.body %>
 </div>
-<a href="#" class="review-details">View Full Review</a>
+<%= link_to "View Full Review", review_path(review.id)%> |
+  <a href="/review/<%=review.id%>">Comments</a>
 <% end %>
 <br><br>
   <div class="review-new">

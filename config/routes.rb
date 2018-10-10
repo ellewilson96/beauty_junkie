@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :new, :create]
   end
 
-  resources :brands, only: [:new, :create]
+  resources :brands, only: [:new, :create, :index]
 
   resources :reviews do
     resources :comments

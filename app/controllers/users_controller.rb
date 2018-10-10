@@ -1,13 +1,10 @@
 class UsersController < ApplicationController
 
   def show
-    @review = Review.find(params[:id])
-    @product = Product.find(params[:id])
+    @reviews = current_user.reviews
+    @review = @reviews.find_by(params[:review_id])
+    @product = Product.find_by(params[:product_id])
   end
 
-  def index
-    @reviews = current_user.reviews.all
-    @products = Product.all
-  end
 
 end
