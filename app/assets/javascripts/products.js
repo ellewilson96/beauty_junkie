@@ -20,17 +20,17 @@
 
 $(function(){
   $('a.all-products').on('click', function(e) {
-    $('div.page-body').html("")
+    $('div#page-body').html("")
     $.get(this.href+'.json', function(data) {
       data.forEach(product => {
         let productHtml = `
-      
+
           <div class="product-header"><a href="/products/${product.id}">${product.name}</a> by <a href="/brands/${product.brand.id}">${product.brand.name}</a>
           </div>
             <div class="product-description"> ${product.description} <br>
             <a href="/products/${product.id}/reviews">View All Reviews</a> | <a href="/products/${product.id}/reviews/new">Write a Review</a>
             </div>`
-        $('div.page-body').append(productHtml)
+        $('div#page-body').append(productHtml)
       })
     })
     e.preventDefault();
