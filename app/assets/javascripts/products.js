@@ -24,8 +24,12 @@ $(function(){
     $.get(this.href+'.json', function(data) {
       data.forEach(product => {
         let productHtml = `
-          <h3><a href="/products/${product.id}">${product.name}</a> by <a href="/brands/${product.brand.id}">${product.brand.name}</a>  </h3>
-            <p> ${product.description} </p><br>`
+      
+          <div class="product-header"><a href="/products/${product.id}">${product.name}</a> by <a href="/brands/${product.brand.id}">${product.brand.name}</a>
+          </div>
+            <div class="product-description"> ${product.description} <br>
+            <a href="/products/${product.id}/reviews">View All Reviews</a> | <a href="/products/${product.id}/reviews/new">Write a Review</a>
+            </div>`
         $('div.page-body').append(productHtml)
       })
     })
