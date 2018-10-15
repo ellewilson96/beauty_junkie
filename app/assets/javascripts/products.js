@@ -32,3 +32,11 @@ $(function(){
     e.preventDefault();
   })
 })
+
+// this.something = "Banana"
+//
+// function(product) {
+//   return product.name
+// }.bind(this)
+//
+// product => product.name

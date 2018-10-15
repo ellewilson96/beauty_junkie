@@ -1,6 +1,15 @@
+
 <div class="topnav" id="myTopnav">
+
+
+  <nav class="topnav-items--logo">
+      <div class="logo"><%= link_to 'Home', root_path %></div>
+    </nav>
+
    <nav class="topnav-items">
+
     <% if user_signed_in? %>
+
 
         <div class="nav-link"> <%= link_to 'Log Out', destroy_user_session_path, method: :delete %></div>
 
@@ -22,20 +31,11 @@
 
   <% end %>
   </nav>
-  <nav class="topnav-items--right">
-      <div class="logo"><%= link_to 'Home', root_path %></div>
-</nav>
+
 </div>
 
-<div class="flex-body">
-  <div class="flex-media">
-  <div class="flex-column">
-    <a class="twitter-timeline" href="https://twitter.com/temptalia?ref_src=twsrc%5Etfw" data-height="500">Tweets by temptalia</a>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  </div>
-    <div class="flex-column">
-      <iframe src="https://www.youtube.com/embed/videoseries?list=PL855S-vac7veZyrHtHb88S8oEbJGYaSEZ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
-  </div>
-
-  <div class="flex-column--right">
+<div class="nav-blurb">
+    <p>The current time is <%= Time.now.strftime("%I:%M%p") %> on <%= Time.now.strftime("%A, %B %d, %Y")%>.<br>
+      <b>You are signed in as <%= current_user.email %></b>
+    </p>
+</div>

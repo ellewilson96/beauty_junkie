@@ -1,13 +1,16 @@
-<p>The current time is <%= Time.now.strftime("%I:%M%p") %> on <%= Time.now.strftime("%A, %B %d, %Y")%>.<br>
-  <b>You are signed in as <%= current_user.email %></b>
-</p><br>
-<h2>Latest Reviews</h2><br>
+
+
+<div class="title">Latest Reviews
+  </div><br>
 
 <div class="reviews-index">
 <% @reviews.each do |review| %>
-<h3><%= review.user.email%><br> left a review for <br><a href="/products/<%=review.product_id%>"></a><br>by
-  <a href="/brands">Brand</a> </h3>
-  <h4><%=review.title%></h4>
-<h3>Show Full Review | This many comments</h3>
-<% end %>
+<div class="review-header">
+<%= review.user.email%><br> left a review
 </div>
+  <div class="review-content">"<%=review.title%>"
+
+<br>
+  <%= link_to "View Full Review", review_path(review.id) %>
+</div>
+<% end %>

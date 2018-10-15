@@ -2,25 +2,32 @@
 <html>
   <head>
     <title>Beauty Junkie</title>
+      <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
-  <body>
-<%= render 'layouts/navbar' %>
 
-<div class="page-body">
+  <body>
+    <%= render 'layouts/navbar' %>
+
+<div class="flex-body">
+
+  <div class="flex-column">
+    <a class="twitter-timeline" href="https://twitter.com/temptalia?ref_src=twsrc%5Etfw" data-height="500">Tweets by temptalia</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <div class="flex-media">
+    <iframe src="https://www.youtube.com/embed/videoseries?list=PL855S-vac7veZyrHtHb88S8oEbJGYaSEZ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+  </div>
+
+<div class="flex-content">
+
   <%= yield %>
 
-  <div class="products">
-  </div>
+</div>
+</div>
 
-  <div class="brands">
-  </div>
-  </div>
-
-<%= stylesheet_link_tag    'application', media: 'all' %>
-<%= javascript_include_tag 'application' %>
-<%= csrf_meta_tags %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
   <meta charset="utf-8">
-
 
   </body>
 </html>

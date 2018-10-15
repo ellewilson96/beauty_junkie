@@ -1,3 +1,4 @@
+/* media queries */
 
 @media screen {
   * {
@@ -6,24 +7,42 @@
     padding: 0;
   }
 
+/* body formatting */
+
   html, body {
     text-align: center;
     height: 100%;
     width: 100%;
-
-  }
-
-  body {
-    font-family: 'Raleway', sans-serif;
-    line-height: 1.6;
     background-image: url('marble-background.jpg');
     background-size: 130%;
   }
 
+  body {
+    font-family: 'Futura', sans-serif;
+    line-height: 1.6;
+
+  }
+
+
+  p {
+    text-align: center;
+    line-height: 18px;
+    font-weight: 100;
+    font-family: "Futura", sans-serif;
+    color: #262626;
+    background-color: #EEEEEE;
+    padding-top: 5px;
+    text-decoration: none;
+    font-style: italic;
+    font-size: 15px;
+  }
+
+/* header formatting */
+
 h1 {
   text-align: center;
   line-height: 50px;
-  font-family: "Raleway", sans-serif;
+  font-family: "Futura", sans-serif;
   color: #EDEBEB;
   text-decoration: none;
 }
@@ -31,10 +50,9 @@ h1 {
 h2 {
   text-align: center;
   line-height: 65px;
-  font-family: "Raleway", sans-serif;
+  font-family: "Futura", sans-serif;
   color: #EDEBEB;
   background-color: #262626;
-  padding: 0 10px 0;
   text-decoration: none;
 }
 
@@ -42,7 +60,7 @@ h3 {
   text-align: center;
   line-height: 30px;
   font-weight: 100;
-  font-family: "Raleway", sans-serif;
+  font-family: "Futura", sans-serif;
   color: #EDEBEB;
   background-color: #505050;
   text-decoration: none;
@@ -54,140 +72,132 @@ h3 a {
 }
 
 h4 {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Futura', sans-serif;
   line-height: 1.4;
 }
 
-p {
-  text-align: center;
-  line-height: 18px;
-  font-weight: 100;
-  font-family: "Raleway", sans-serif;
-  color: #262626;
-  background-color: #EEEEEE;
-  padding-top: 5px;
-  text-decoration: none;
-  font-style: italic;
-  font-size: 15px;
-}
 
-/* layout */
+/* layout formatting */
+
   .flex-body {
     display: flex;
-    align-content: stretch;
-    width: 95%;
-    flex-direction: row;
-    flex-wrap: row wrap;
-  }
-
-  .flex-media {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: stretch;
-    width: 60%;
-    flex-direction: column;
-    flex-wrap: column wrap;
+    width: 100%;
   }
 
 .flex-column {
-    width: 80%;
-    justify-content: center;
-    background-color:#444444;
-    opacity: 0.8;
-    border: 25px;
-    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    margin: 10px auto;
-    padding: 2.25%; /* 18px / 800px */
+  flex-direction: column;
+  background-color:#ffffff;
+  opacity: 0.8;
+  -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+  margin: auto;
+  margin-top: 10px;
+  padding: 2%;
   }
 
-  .flex-column--right {
-      width: 95%;
-      background-color:#ffffff;
-      align-items: right;
-      opacity: 0.8;
-      border: 10px solid #444444;
-      -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
-      -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
-      margin: 10px auto;
-      padding: 2.25%; /* 18px / 800px */
-    }
 
-/* navigation */
+.flex-content {
+  flex-direction: column;
+    width: 60%;
+    background-color:#ffffff;
+    opacity: 0.8;
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    margin: auto;
+    margin-top: 10px;
+    padding: 2%;
+  }
+
+/* navigation formatting */
+
 .topnav {
    background-image: url('marble-banner.jpg');
    background-size: 100%;
    list-style-type: none;
-   margin: 0;
-   padding: 0;
    overflow: hidden;
-   background-color: #333;
+   -moz-box-shadow: 0 0 20px rgba(0,0,0,.3);
+   -webkit-box-shadow: 0 0 20px rgba(0,0,0,.3);
 }
 
 .topnav-items {
     display:inline-block;
-    float: left;
+    margin: auto;
     margin-right: 1px;
     cursor: default;
 }
 
-.topnav-items--right {
-  max-height: 150px;
-  float: right;
-  padding-right: 25px;
+.topnav-items--logo {
+  margin: auto;
+  vertical-align: middle;
   content:url('banner-logo.png');
 }
 
 .nav-link {
     display: inline-block;
-    background: #262626;
-    border: 1px solid #dcdcdc;
-    margin-top: 95px;
-    min-width: 205px;
+    margin: auto;
+    border-top: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+    min-width: 125px;
     height: 50px;
-    opacity: 0.8;
 }
 
 .nav-link a {
     display: inline-block;
     text-align: center;
     line-height: 50px;
-    font-family: "Raleway", sans-serif;
-    color: #EDEBEB;
+    font-family: "Futura", sans-serif;
+    color: #6ca1b8;
     text-decoration: none;
 }
 
 .nav-link:hover a {
-    background: #f7f6ea;
-    min-width: 205px;
+    background: #6ca1b8;
+    min-width: 125px;
     opacity: 0.8;
-    color: #262626
+    color: #dfe9ed;
   }
 
+.nav-blurb {
+  display: inline-block;
+  margin-bottom: 5px;
+  cursor: default;
+  margin: auto;
+  margin-top: 10px;
+  opacity: 0.8;
+  max-height: 30px;
+}
+
 .footer-links {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  background-color: #171515;
+  display: inline-block;
+  margin: auto;
+  border-top: 1px solid #dcdcdc;
+  border-right: 1px solid #dcdcdc;
+  min-width: 125px;
+  height: 50px;
 }
 
 .footer-links a {
-  display: flex;
-  margin-left: 10px;
-  margin-right: auto;
-  line-height: 30px;
-  font-weight: 100;
-  font-family: "Raleway", sans-serif;
-  color: #EDEBEB;
+  display: inline-block;
+  text-align: center;
+  line-height: 50px;
+  font-family: "Futura", sans-serif;
+  color: #6ca1b8;
   text-decoration: none;
 }
 
+.footer-links:hover a {
+  background: #6ca1b8;
+  min-width: 125px;
+  opacity: 0.8;
+  color: #dfe9ed;
+}
+
 /* errors and alerts */
+
 .flash {
     opacity: none;
     box-shadow: 0 10px 10px rgba(0,0,0,.3);
-    font-family: "Raleway", sans-serif;
+    font-family: "Futura", sans-serif;
     font-size: 110%;
     background: #0000FF;
     text-align:center;
@@ -195,7 +205,7 @@ p {
   }
 
   .error {
-    font-family: "Raleway", sans-serif;
+    font-family: "Futura", sans-serif;
     color : red;
     width: 100%;
   }
@@ -206,5 +216,41 @@ p {
   }
 
 /* text formatting */
+
+.title {
+  text-align: center;
+  line-height: 65px;
+  font-size: 2.0em;
+  font-family: "Futura", sans-serif;
+  color: #EDEBEB;
+  text-decoration: none;
+  background-color: #154b66;
+
+}
+
+
+.review-header {
+  text-align: center;
+  line-height: 30px;
+  font-weight: 100;
+  font-family: "Futura", sans-serif;
+  color: #EDEBEB;
+  background-color: #6ca1b8;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.review-content {
+  text-align: center;
+  line-height: 18px;
+  font-weight: 100;
+  font-family: "Futura", sans-serif;
+  color: #262626;
+  background-color: #EEEEEE;
+  padding-top: 5px;
+  text-decoration: none;
+  font-size: 15px;
+}
+
 
 }

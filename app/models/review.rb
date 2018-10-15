@@ -7,4 +7,5 @@ class Review < ActiveRecord::Base
   validates :body, presence: true
   validates :user, presence: true
   validates :title, presence: true
+  validates_length_of :body, :minimum => 140
 end

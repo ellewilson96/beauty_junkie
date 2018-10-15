@@ -4,7 +4,7 @@ $(function(){
     $.get(this.href+'.json', function(data) {
       data.forEach(brand => {
         let brandHtml = `
-          <h3><a href="/brands/${brand.id}">${brand.name}</a></h3>
+          <h3>${brand.name}</h3>
             <p>${brand.products.length} Product(s)</p><br>`
         $('div.page-body').append(brandHtml)
       })

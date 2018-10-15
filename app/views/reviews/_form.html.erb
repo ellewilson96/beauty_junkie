@@ -1,17 +1,18 @@
 
 <h2>Write a Review for <%= @product.brand.name %>'s <i><%= @product.name %></i></h2>
 <br>
-<%= form_for @review do |f| %>
 <div class="review_form">
   <h4>
 
-  <%= f.label :title %>:
-  <%= f.text_field :title %><br>
+  <%= form_for @product.reviews.build do |f| %>
 
-  <%= f.label :body %>:
-  <%= f.text_area :body %><br>
+    <%= f.label :title %>:
+    <%= f.text_field :title %><br>
 
-  <%= f.submit %>
+    <%= f.label :body %>:
+    <%= f.text_area :body %><br>
+
+    <%= f.submit %>
   <% end %>
 </h4>
 </div>
