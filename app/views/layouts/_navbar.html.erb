@@ -10,7 +10,6 @@
 
     <% if user_signed_in? %>
 
-
         <div class="nav-link"> <%= link_to 'Log Out', destroy_user_session_path, method: :delete %></div>
 
         <div class="nav-link"> <%= link_to "Home", root_path %></div>
@@ -29,13 +28,17 @@
 
         <div class="nav-link"> <%= link_to 'Log In', new_user_session_path %></div>
 
-  <% end %>
   </nav>
+<% end %>
 
 </div>
 
+
+<% if user_signed_in? %>
 <div class="nav-blurb">
     <p>The current time is <%= Time.now.strftime("%I:%M%p") %> on <%= Time.now.strftime("%A, %B %d, %Y")%>.<br>
       <b>You are signed in as <%= current_user.email %></b>
     </p>
 </div>
+<% else %>
+  <% end %>

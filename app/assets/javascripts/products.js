@@ -20,16 +20,18 @@
 
 $(function(){
   $('a.all-products').on('click', function(e) {
-    $('div#page-body').html("")
+    $('div#page-body').html(`<div class="title">Latest Products</div>`)
     $.get(this.href+'.json', function(data) {
       data.forEach(product => {
         let productHtml = `
-
-          <div class="product-header"><a href="/products/${product.id}">${product.name}</a> by <a href="/brands/${product.brand.id}">${product.brand.name}</a>
+        <div class="product-header"><a href="/products/${product.id}">${product.name}</a> by <a href="/brands/${product.brand.id}">${product.brand.name}</a>
           </div>
             <div class="product-description"> ${product.description} <br>
+            <div class="ingredients-${product.id}">
+              </div>
+            <a class="load-ingredients" href="/products/${product.id}">Product Ingredients</a> |
             <a href="/products/${product.id}/reviews">View All Reviews</a> | <a href="/products/${product.id}/reviews/new">Write a Review</a>
-            </div>`
+            </div><br>`
         $('div#page-body').append(productHtml)
       })
     })
@@ -37,10 +39,14 @@ $(function(){
   })
 })
 
-// this.something = "Banana"
-//
-// function(product) {
-//   return product.name
-// }.bind(this)
-//
-// product => product.name
+$(function(){
+  $('a.load-ingredients').on('click', function(e) {
+    $.get(this.href+'.json', function(data) {
+        let id = data.id
+        let productHtml = `${data.ingredient_list}`
+        $('div.ingredients-'+id).append(productHtml)
+        $('a.load-ingredients').html("Hide Ingredients")
+      })
+    e.preventDefault();
+  })
+})

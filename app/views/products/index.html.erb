@@ -1,18 +1,20 @@
-  <h2>Newest Products</h2><br>
+    <div class="title">Products From <%= @brand.name %><br></div>
+
     <% @products.each do |product| %>
-<h2><%= product.brand.name %></h2>
-  <h3><%= product.name %></h3>
+        <%= product.name %>
     <p><%= product.description %></p>
 
-    <div class="ingredients-<%=product.id%>"></div>
-    <a class="load-ingredients" href="/<%=product.id%>">Product Ingredients</a>
+    <div class="ingredients-<%=product.id%>">
+      </div>
+    <a class="load-ingredients" href="/products/<%=product.id%>">Product Ingredients</a>
+
       |  <%= link_to "#{ product.reviews.length } Reviews", product_reviews_path(product.id)%>
           |   <%= link_to "Write a Review", new_product_review_path(product.id) %></h3>
 <br>
 <% end %>
 <br>
 <div class="footer-links">
-  <%= link_to "Add a New Product", new_product_path %><br>
-  <%= link_to "Find a Product To Review", products_path %><br>
+  <%= link_to "Add a New Product", new_product_path %>
+  <%= link_to "Find a Product To Review", products_path %>
   <%= link_to 'Back', root_path %>
 </div>

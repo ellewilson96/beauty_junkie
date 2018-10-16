@@ -1,8 +1,6 @@
 
-<h2>Write a Review for <%= @product.brand.name %>'s <i><%= @product.name %></i></h2>
-<br>
+<div class="title">Write a Review for <%= @product.brand.name %>'s <br><i><%= @product.name %></i></div>
 <div class="review_form">
-  <h4>
 
   <%= form_for @product.reviews.build do |f| %>
 
@@ -14,5 +12,4 @@
 
     <%= f.submit %>
   <% end %>
-</h4>
 </div>
