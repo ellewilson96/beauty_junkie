@@ -5,8 +5,8 @@ class Review < ActiveRecord::Base
 
 
   validates :body, presence: true
-  validates :product, presence: true
+  validates :product_id, presence: true
   validates :user, presence: true
   validates :title, presence: true
-  validates_length_of :body, :minimum => 140
+  # validates_length_of :body, :minimum => 140
 end
