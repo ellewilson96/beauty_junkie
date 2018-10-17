@@ -1,6 +1,6 @@
-    <div class="title">Products From <%= @brand.name %><br></div>
 
-    <% @products.each do |product| %>
+    <% @brand.products.each do |product| %>
+    <div class="product-header">  Products From <%= @brand.name %></div>
         <%= product.name %>
     <p><%= product.description %></p>
 
@@ -9,12 +9,11 @@
     <a class="load-ingredients" href="/products/<%=product.id%>">Product Ingredients</a>
 
       |  <%= link_to "#{ product.reviews.length } Reviews", product_reviews_path(product.id)%>
-          |   <%= link_to "Write a Review", new_product_review_path(product.id) %></h3>
-<br>
+          |   <%= link_to "Write a Review", new_product_review_path(product.id) %>
 <% end %>
-<br>
+<br><br>
 <div class="footer-links">
-  <%= link_to "Add a New Product", new_product_path %>
-  <%= link_to "Find a Product To Review", products_path %>
+  <%= link_to "Add a New Product", new_product_path %> |
+  <%= link_to "Find a Product To Review", products_path %> |
   <%= link_to 'Back', root_path %>
 </div>

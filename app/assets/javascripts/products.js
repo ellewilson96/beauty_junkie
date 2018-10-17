@@ -17,36 +17,35 @@
 //load products index page into page-body div on home page
 //load brands index page into page-body div on home page
 
-
 $(function(){
+
   $('a.all-products').on('click', function(e) {
-    $('div#page-body').html(`<div class="title">Latest Products</div>`)
+  e.preventDefault();
     $.get(this.href+'.json', function(data) {
+      $('div#page-body').html("")
       data.forEach(product => {
-        let productHtml = `
+        const productHtml = `
         <div class="product-header"><a href="/products/${product.id}">${product.name}</a> by <a href="/brands/${product.brand.id}">${product.brand.name}</a>
           </div>
             <div class="product-description"> ${product.description} <br>
             <div class="ingredients-${product.id}">
               </div>
-            <a class="load-ingredients" href="/products/${product.id}">Product Ingredients</a> |
+            <a href="/products/${product.id}">Product Details</a> |
             <a href="/products/${product.id}/reviews">View All Reviews</a> | <a href="/products/${product.id}/reviews/new">Write a Review</a>
             </div><br>`
         $('div#page-body').append(productHtml)
       })
     })
-    e.preventDefault();
   })
-})
 
-$(function(){
   $('a.load-ingredients').on('click', function(e) {
+  e.preventDefault();
+    $('div.ingredients-'+id).html("")
     $.get(this.href+'.json', function(data) {
         let id = data.id
         let productHtml = `${data.ingredient_list}`
-        $('div.ingredients-'+id).append(productHtml)
-        $('a.load-ingredients').html("Hide Ingredients")
+        $('div.ingredients-'+id).append(productHtml);
+        $('a.load-ingredients').html("Hide Ingredients");
       })
-    e.preventDefault();
   })
 })
