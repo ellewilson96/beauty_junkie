@@ -11,21 +11,19 @@
   </div>
 
 <div class="comments">
-  <%= render 'comments/comments' %>
+  <ol>
+  </ol>
 </div>
 
 <div id="load-comments">
-  <a href="#" class="load-comments">Show all comments</a>
+  <a class="load-comments" href="/reviews/<%=@review.id%>/comments/<%=@comment.id%>">Show all comments</a>
 </div>
 
-<h3>
-  <div id="new-comment">
       <%= form_for(@comment, :url => review_comments_path(@review)) do |f|  %>
       <%= f.text_area :content %>
 
       <p><%= f.submit %></h3></p>
       <% end %>
-    </div>
 
 <% if current_user.id = @review.user_id %>
 <%= link_to 'Edit Review', edit_review_path(@review) %>

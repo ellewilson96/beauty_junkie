@@ -4,16 +4,15 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @products = Product.all
   end
 
   def index
-    @products = Product.all
     @brand = Brand.find_by(params[:brand_id])
+    @products = Product.all
    respond_to do |f|
      f.html
      f.json {render json: @products, layout: false}
-  end
+end
 end
 
   def show
@@ -41,11 +40,12 @@ end
   private
 
   def product_params
-    params.require(:product).permit(:brand_id, :name, :description, :ingredient_list, reviews_attributes: [:title, :body])
+    params.require(:product).permit(:name, :description, :ingredient_list, reviews_attributes: [:title, :body])
   end
 
   def set_product
   @product = Product.find(params[:id])
 end
+
 
 end

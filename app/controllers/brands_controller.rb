@@ -21,6 +21,10 @@ class BrandsController < ApplicationController
       end
     end
     #render json: @product, status: 201
+def show
+  @products = @brand.products
+  @product = @brand.products.build
+end
 
   private
 

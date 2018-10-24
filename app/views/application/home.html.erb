@@ -1,12 +1,10 @@
-
-
 <div class="title">Latest Reviews
   </div><br>
 
 <% @reviews.each do |review| %>
-<div class="review-header">
-<%= review.user.email%><br> left a review
-</div>
+  <div class="review-header">
+      <%= review.user.email%><br> left a review
+    </div>
   <div class="review-content">"<%=review.title%>"
 
 <br>

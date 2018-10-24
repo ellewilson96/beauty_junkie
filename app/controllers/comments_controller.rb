@@ -5,16 +5,14 @@ class CommentsController < ApplicationController
     @comments = @review.comments.order(created_at: :asc)
 
     respond_to do |f|
-     f.html {render 'index.html', :layout => false}
-     f.js {render 'index.js', :layout => false}
+      f.html
+      f.json {render json: @comment, layout: false}
    end
   end
 
  def create
    @comment = @review.comments.build(comments_params)
    if @comment.save
-     # I need to render something that just has the LI I want...
-     # why not just create a comments/show view that shows the LI of one comment?
      render 'comments/show', :layout => false
    else
      render "reviews/show"

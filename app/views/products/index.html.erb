@@ -1,19 +1,18 @@
-
-    <% @brand.products.each do |product| %>
-    <div class="product-header">  Products From <%= @brand.name %></div>
-        <%= product.name %>
-    <p><%= product.description %></p>
-
-    <div class="ingredients-<%=product.id%>">
-      </div>
-    <a class="load-ingredients" href="/products/<%=product.id%>">Product Ingredients</a>
-
-      |  <%= link_to "#{ product.reviews.length } Reviews", product_reviews_path(product.id)%>
-          |   <%= link_to "Write a Review", new_product_review_path(product.id) %>
+<% if @brand.products.empty? %>
+  There are no products yet for <%= @brand.name %>.<br>
+  <%= link_to "Submit a New Product", new_product_path %>
+<% else %>
+<% @brand.products.each do |product| %>
+<div class="product-header">
+  <a href="/products/<%= product.id%>"><%= product.name %></a> by
+  <a href="/brands/<%= product.brand.id%>"><%= product.brand.name%></a>
+  </div>
+<div class="product-description">
+  <%= product.description %> <br>
+    <a href="/products/<%= product.id %>" class="load-ingredients">Product Details</a>|
+    <a href="/products/<%= product.id %>/reviews">View All Reviews</a> |
+    <a href="/products/<%= product.id %>/reviews/new">Write a Review</a>
+    </div>
+  <br>
 <% end %>
-<br><br>
-<div class="footer-links">
-  <%= link_to "Add a New Product", new_product_path %> |
-  <%= link_to "Find a Product To Review", products_path %> |
-  <%= link_to 'Back', root_path %>
-</div>
+<% end %>

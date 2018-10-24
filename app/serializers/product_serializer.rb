@@ -3,5 +3,4 @@ class ProductSerializer < ActiveModel::Serializer
 
   belongs_to :brand
   has_many :reviews
-
 end

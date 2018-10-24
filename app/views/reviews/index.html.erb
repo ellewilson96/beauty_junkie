@@ -9,7 +9,7 @@
 <div class="review-preview"><%= review.body %>
 
 <%= link_to "View Full Review", review_path(review.id)%> |
-  <a href="/review/<%=review.id%>">Comments</a>
+  <a class="load-comments" href="/reviews/<%=review.id%>/comments">Comments</a>
 <% end %>
   </div>
 

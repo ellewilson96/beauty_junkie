@@ -1,0 +1,25 @@
+
+<div class="footer">
+
+   <% if user_signed_in? %>
+
+       <div class="footer-links"> <%= link_to 'Log Out', destroy_user_session_path, method: :delete %></div>
+
+       <div class="footer-links"> <%= link_to "Home", root_path %></div>
+
+       <div class="footer-links"> <%= link_to "Products", products_path, class: 'all-products' %></div>
+
+       <div class="footer-links"> <%= link_to "Brands", brands_path, class: 'all-brands' %></div>
+
+       <div class="footer-links"> <%= link_to "My Profile", user_path(current_user.id), class: 'user-profile' %></div>
+
+       <% else %>
+
+       <div class="footer-links"> <%= link_to "Sign In With Facebook", user_facebook_omniauth_authorize_path %></div>
+
+       <div class="footer-links"> <%= link_to 'Sign Up', new_user_registration_path %></div>
+
+       <div class="footer-links"> <%= link_to 'Log In', new_user_session_path %></div>
+
+ <% end %>
+</div>
