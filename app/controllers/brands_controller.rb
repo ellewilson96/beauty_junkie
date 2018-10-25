@@ -29,7 +29,7 @@ end
   private
 
   def brand_params
-    params.require(:brand).permit(:name, products_attributes: [:brand_id, :name, :description, :ingredient_list])
+    params.require(:brand).permit(:id, :name)
   end
 
 end

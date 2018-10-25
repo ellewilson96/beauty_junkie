@@ -10,13 +10,12 @@ Rails.application.routes.draw do
 
   resources :brands, only: [:new, :create, :index]
 
-  resources :brands do
-    resources :products, only: [:index]
-  end
+  resources :products
 
   resources :reviews do
     resources :comments
   end
+
 
     devise_for :users, controllers: {
      sessions: 'users/sessions',

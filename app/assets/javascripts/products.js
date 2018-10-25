@@ -17,33 +17,51 @@
 //load products index page into page-body div on home page
 //load brands index page into page-body div on home page
 
-$(function(){
 
-  $('a.all-products').on('click', function(e) {
-  e.preventDefault();
-    $.get(this.href+'.json', function(data) {
-      $('div#page-body').html("")
+$(function(){
+  attachEventListeners();
+
+  function getProducts() {
+      $('div#page-body').html(`<div class="title">Latest Products</div>`)
+    $.get(`/products.json`, function(data) {
       data.forEach(product => {
+        const id = product.id
         const productHtml = `
         <div class="product-header"><a href="/products/${product.id}">${product.name}</a> by <a href="/brands/${product.brand.id}">${product.brand.name}</a>
           </div>
             <div class="product-description"> ${product.description} <br>
-            <a href="/products/${product.id}" class="load-ingredients">Product Details</a>|
+            <div class="ingredients-${id}"></div>
+            <a class="load-ingredients" href="/products/${id}">Product Ingredients</a>|
             <a href="/products/${product.id}/reviews">View All Reviews</a> | <a href="/products/${product.id}/reviews/new">Write a Review</a>
             </div><br>`
         $('div#page-body').append(productHtml)
       })
     })
+  }
 
-  $('.load-ingredients').on('click', function(e) {
+  function loadIngredients() {
+   $.get(this.json, function(data) {
+     data.forEach(product => {
+       const id = product.id
+       const productHtml = product.ingredient_list
+       $('div.ingredients-id').append(productHtml)
+       $('a.load-ingredients').html("Hide Ingredients");
+     })
+  }
+)}
 
-    $.get(this.href+'.json', function(data) {
-        let id = data.id
-        let productHtml = `${data.ingredient_list}`
-        $('div.ingredients-'+id).append(productHtml);
-        $('a.load-ingredients').html("Hide Ingredients");
-      })
-  e.preventDefault();
+
+
+    function attachEventListeners() {
+
+      $('a.all-products').on('click', function(e) {
+      e.preventDefault();
+        getProducts()
+    })
+
+      $('a.load-ingredients').on('click', function(e) {
+      e.preventDefault();
+      loadIngredients()
   })
-})
+}
 })

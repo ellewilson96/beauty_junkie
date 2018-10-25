@@ -267,6 +267,16 @@ h4 {
   background-color: #154b66;
 
 }
+.review-title {
+  text-align: center;
+  line-height: 30px;
+  font-weight: 100;
+  font-family: "Futura", sans-serif;
+  color: #EDEBEB;
+  background-color: #505050;
+  text-decoration: none;
+  font-size: 15px;
+}
 
 .review-header {
   text-align: center;
@@ -276,10 +286,11 @@ h4 {
   color: #EDEBEB;
   background-color: #6ca1b8;
   text-decoration: none;
+  border-top: 2px solid #505050;
   font-size: 15px;
 }
 
-.review-preview {
+.review-content {
   text-align: center;
   line-height: 18px;
   font-weight: 100;
@@ -341,4 +352,14 @@ h4 {
   padding-top: 5px;
   text-decoration: none;
   font-size: 15px;
+}
+
+.review-links {
+  text-align: center;
+  line-height: 30px;
+  font-family: "Futura", sans-serif;
+  color: #6ca1b8;
+  text-decoration: none;
+  border-bottom: 2px solid #505050;
+  margin-bottom: 2em;
 }

@@ -1,11 +1,13 @@
-<div class="review-header">
-      Reviews for <%= @product.name %> by <%= @product.brand.name %><br>
+<div class="title"><%= @product.name %></div>
+  <div class="review-header">
+      <%= @product.brand.name %><br>
+    <div>
     <% @product.reviews.each do |review| %>
-  <%= review.title %>
-  <br> by <%= review.user.email %>
+  <div class="review-preview"><%= review.title %><br><%= review.body[0...50] %></div>
+  by <%= review.user.email %>
 
   </div>
-
+</div>
 <div class="review-preview"><%= review.body %>
 
 <%= link_to "View Full Review", review_path(review.id)%> |
@@ -14,9 +16,14 @@
   </div>
 
 <br><br>
+
   <div class="review-new">
     <%= link_to "Write a New Review", new_product_review_path(@product.id) %>
   </div>
+
+<div class="next-product">
+  <%= link_to "Next Product", product_reviews_path((@product.id.to_i)+1)%>
+</div>
 
 <div class="footer-links">
   <%= link_to "Explore Products", products_path %> |

@@ -7,12 +7,12 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @brand = Brand.find_by(params[:brand_id])
     @products = Product.all
-   respond_to do |f|
+    @brand = Brand.find_by(params[:brand_id])
+    respond_to do |f|
      f.html
      f.json {render json: @products, layout: false}
-end
+   end
 end
 
   def show

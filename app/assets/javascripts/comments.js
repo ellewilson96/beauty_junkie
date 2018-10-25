@@ -5,7 +5,7 @@ $(function(){
        data.forEach(comment => {
          let commentHtml = `
            <li><%= comment.content %></li>`
-       $("div.comments ol").append(commentHtml)
+       $("div.comments").append(commentHtml)
           //with each comment data, append an LI to the OL with the comment content
        })
      })

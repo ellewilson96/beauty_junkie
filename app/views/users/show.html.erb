@@ -3,13 +3,32 @@
 <% @reviews.each do |review| %>
 
 <div class="review-header">
-  <%= review.created_at %><%= @product.name %> by <%= @product.brand.name %><br>
-  <%= review.title %>
+  <%= review.created_at.strftime("%A, %d %b %Y at %l:%M %p") %><br>
+  <%= @product.name %> by <%= @product.brand.name %><br></div>
+<div class="review-title"><%= review.title %>
 </div>
 
 <div class="review-content">
   <%= review.body %>
+</div>
 
-<%= link_to "Edit Review", edit_review_path(review.id) %>
-  <% end %>
+<br>
+<div class="review-links">
+<%= link_to "Edit Review", edit_review_path(@review.id) %>
+
+<div class="comments">
+  <ol>
+  </ol>
+</div>
+
+<div id="load-comments">
+  <a class="load-comments" href="/reviews/<%=@review.id%>/comments">Show all comments</a>
+</div>
+
+      <%= form_for(@comment, :url => review_comments_path(@review)) do |f|  %>
+      <%= f.text_area :content %>
+
+      <p><%= f.submit %></h3></p><br>
+      <% end %>
+      <% end %>
 </div>

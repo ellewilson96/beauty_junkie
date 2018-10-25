@@ -41,7 +41,7 @@ end
   def update
       @review.update_attributes(review_params)
     if  @review.save
-      redirect_to products_path
+      redirect_to user_path(current_user.id)
     else
       @review.errors.add(:base, "You must be the original creator to make changes
       to this review.")
