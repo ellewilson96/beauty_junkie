@@ -1,6 +1,5 @@
 $(function(){
   attachEventListeners()
-})
 
   function getBrands() {
       $('div#page-body').html(`<div class="title">Popular Brands</div>`)
@@ -9,7 +8,7 @@ $(function(){
         if (brand.products.length !== 0) {
         let brandHtml = `
       <div class="brand-header">${brand.name}</div>
-        <a href="/products" onclick="loadProducts()">${brand.products.length} Product(s)</a>
+        <a href="/brands/${brand.id}/products">${brand.products.length} Product(s)</a>
         <br><br>
         <div class="product-list">
 
@@ -55,3 +54,4 @@ function attachEventListeners() {
     loadProducts()
   })
 }
+})

@@ -12,11 +12,12 @@
 
 <div class="comments">
   <ol>
+    <%= render '/comments/comments' %>
   </ol>
 </div>
 
 <div id="load-comments">
-  <a class="load-comments" href="/reviews/<%=@review.id%>/comments/<%=@comment.id%>">Show all comments</a>
+  <a class="load-comments" href="/reviews/<%=@review.id%>">Show all comments</a>
 </div>
 
       <%= form_for(@comment, :url => review_comments_path(@review)) do |f|  %>

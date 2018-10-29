@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :new, :create]
   end
 
-  resources :brands, only: [:new, :create, :index]
+  resources :brands, only: [:new, :create, :index] do
+    resources :products, only: [:index]
+  end
 
   resources :products
 

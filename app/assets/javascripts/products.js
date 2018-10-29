@@ -19,7 +19,7 @@
 
 
 $(function(){
-  attachEventListeners();
+  attachEventListeners()
 
   function getProducts() {
       $('div#page-body').html(`<div class="title">Latest Products</div>`)
@@ -30,8 +30,7 @@ $(function(){
         <div class="product-header"><a href="/products/${product.id}">${product.name}</a> by <a href="/brands/${product.brand.id}">${product.brand.name}</a>
           </div>
             <div class="product-description"> ${product.description} <br>
-            <div class="ingredients-${id}"></div>
-            <a class="load-ingredients" href="/products/${id}">Product Ingredients</a>|
+            <a href="/products/${id}">Product Details</a>|
             <a href="/products/${product.id}/reviews">View All Reviews</a> | <a href="/products/${product.id}/reviews/new">Write a Review</a>
             </div><br>`
         $('div#page-body').append(productHtml)
@@ -39,29 +38,14 @@ $(function(){
     })
   }
 
-  function loadIngredients() {
-   $.get(this.json, function(data) {
-     data.forEach(product => {
-       const id = product.id
-       const productHtml = product.ingredient_list
-       $('div.ingredients-id').append(productHtml)
-       $('a.load-ingredients').html("Hide Ingredients");
-     })
-  }
-)}
 
 
-
-    function attachEventListeners() {
+  function attachEventListeners() {
 
       $('a.all-products').on('click', function(e) {
       e.preventDefault();
         getProducts()
     })
 
-      $('a.load-ingredients').on('click', function(e) {
-      e.preventDefault();
-      loadIngredients()
-  })
 }
 })

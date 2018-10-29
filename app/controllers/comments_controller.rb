@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 
     respond_to do |f|
       f.html
-      f.json {render json: @comment, layout: false}
+      f.json {render json: @review, layout: false}
    end
   end
 

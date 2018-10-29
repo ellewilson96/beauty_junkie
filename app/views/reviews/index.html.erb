@@ -1,31 +1,27 @@
-<div class="title"><%= @product.name %></div>
+<div class="title"><%= @product.name %> by <%= @product.brand.name %></div>
+<% @product.reviews.each do |review| %>
   <div class="review-header">
-      <%= @product.brand.name %><br>
-    <div>
-    <% @product.reviews.each do |review| %>
-  <div class="review-preview"><%= review.title %><br><%= review.body[0...50] %></div>
+    <%= review.title %>
   by <%= review.user.email %>
-
   </div>
+  <div class="review-content">
+    <p><%= review.body[0...50] %></p>
 </div>
-<div class="review-preview"><%= review.body %>
+    <a class="load-comments" href="/reviews/<%=review.id%>/comments">Comments</a>
+    <div class="comments">
+    </div>
+  <% end %>
+<br>
 
-<%= link_to "View Full Review", review_path(review.id)%> |
-  <a class="load-comments" href="/reviews/<%=review.id%>/comments">Comments</a>
-<% end %>
-  </div>
 
-<br><br>
-
-  <div class="review-new">
-    <%= link_to "Write a New Review", new_product_review_path(@product.id) %>
-  </div>
-
-<div class="next-product">
-  <%= link_to "Next Product", product_reviews_path((@product.id.to_i)+1)%>
-</div>
 
 <div class="footer-links">
-  <%= link_to "Explore Products", products_path %> |
-  <%= link_to 'Back', root_path %>
+    <%= link_to "Write a New Review", new_product_review_path(@product.id) %>
+</div>
+<div class="footer-links">
+  <% if Product.last %>
+  <%= link_to "Browse More Products", products_path, class: 'all-products' %>
+  <% else %>
+  <%= link_to "Next Product", product_reviews_path((@product.id)+1)%>
+  <% end %>
 </div>

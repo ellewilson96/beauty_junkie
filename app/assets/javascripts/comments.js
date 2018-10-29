@@ -2,16 +2,17 @@ $(function(){
    $("a.load-comments").on("click", function(e){
   $('div.comments').html("")
      $.get(this.href+'.json', function(data) {
-       data.forEach(comment => {
+      const all = data.comments
+       all.forEach(comment => {
          let commentHtml = `
            <li><%= comment.content %></li>`
-       $("div.comments").append(commentHtml)
+       $("div.comments ol").append(commentHtml)
           //with each comment data, append an LI to the OL with the comment content
        })
      })
      e.preventDefault();
 })
-})
+
 
 
 $(function(){
@@ -28,4 +29,5 @@ $(function(){
       }
     });
   })
+})
 })

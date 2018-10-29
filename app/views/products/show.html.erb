@@ -1,3 +1,10 @@
-<h2><%= @product.name %> from <%= @product.brand.name %></h2>
-  <h3><%= @product.description %><br></h3>
-  <p><%= @product.ingredient_list %></p>
+<div class="product-header">
+<%= @product.name %> from <%= @product.brand.name %>
+</div>
+
+<div class="product-description">
+<b>  <%= @product.description %></b><br>
+  <p><%= @product.ingredient_list %></p><br>
+    <a href="/products/<%= @product.id %>/reviews">View All Reviews</a> |
+    <a href="/products/<%= @product.id %>/reviews/new">Write a Review</a>
+  </div

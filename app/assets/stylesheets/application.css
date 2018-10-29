@@ -204,7 +204,6 @@ h4 {
 
 .footer-links {
   display: inline-block;
-  border-right: 1px solid #dcdcdc;
   min-width: 10%;
   text-align: center;
   line-height: 50px;
@@ -224,12 +223,13 @@ h4 {
 }
 
 .footer-links:hover a {
-  background: #6ca1b8;
-  width: 100%;
-  opacity: 0.6;
-  color: #dfe9ed;
-  padding-right: 5px;
-
+  display: inline-block;
+  min-width: 10%;
+  text-align: center;
+  line-height: 30px;
+  font-family: "Futura", sans-serif;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 /* errors and alerts */
@@ -354,12 +354,16 @@ h4 {
   font-size: 15px;
 }
 
-.review-links {
+.comment-item {
   text-align: center;
-  line-height: 30px;
+  line-height: 18px;
+  font-weight: 100;
   font-family: "Futura", sans-serif;
-  color: #6ca1b8;
+  color: #262626;
+  background-color: #EEEEEE;
+  padding-top: 5px;
+  padding-bottom: 5px;
   text-decoration: none;
-  border-bottom: 2px solid #505050;
-  margin-bottom: 2em;
+  font-size: 15px;
+  border-bottom: 1px solid #000000;
 }

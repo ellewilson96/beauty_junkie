@@ -1,18 +1,12 @@
-<% if @brand.products.empty? %>
-  There are no products yet for <%= @brand.name %>.<br>
-  <%= link_to "Submit a New Product", new_product_path %>
-<% else %>
-<% @brand.products.each do |product| %>
+<% @products.each do |product| %>
 <div class="product-header">
   <a href="/products/<%= product.id%>"><%= product.name %></a> by
   <a href="/brands/<%= product.brand.id%>"><%= product.brand.name%></a>
   </div>
 <div class="product-description">
   <%= product.description %> <br>
-    <a href="/products/<%= product.id %>" class="load-ingredients">Product Details</a>|
     <a href="/products/<%= product.id %>/reviews">View All Reviews</a> |
     <a href="/products/<%= product.id %>/reviews/new">Write a Review</a>
     </div>
   <br>
-<% end %>
 <% end %>

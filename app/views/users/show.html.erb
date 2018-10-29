@@ -12,23 +12,24 @@
   <%= review.body %>
 </div>
 
+<div class="comments">
+</div>
+
 <br>
+
 <div class="review-links">
 <%= link_to "Edit Review", edit_review_path(@review.id) %>
 
-<div class="comments">
-  <ol>
-  </ol>
-</div>
-
 <div id="load-comments">
-  <a class="load-comments" href="/reviews/<%=@review.id%>/comments">Show all comments</a>
+  <a href="/reviews/<%=review.id%>" class="load-comments">Show all comments</a>
 </div>
 
+  <div id="new-comment">
       <%= form_for(@comment, :url => review_comments_path(@review)) do |f|  %>
       <%= f.text_area :content %>
-
-      <p><%= f.submit %></h3></p><br>
+       <p><%= f.submit %></h3></p>
       <% end %>
+    </div>
+
       <% end %>
 </div>
