@@ -1,33 +1,33 @@
 $(function(){
    $("a.load-comments").on("click", function(e){
-  $('div.comments').html("")
-     $.get(this.href+'.json', function(data) {
-      const all = data.comments
-       all.forEach(comment => {
+  $('div.review-comments-').html("")
+     $.get(this.href+'/comments.json', function(data) {
+       let comments = data.comments
+      comments.forEach(comment => {
+        let id = comment.review_id
          let commentHtml = `
-           <li><%= comment.content %></li>`
-       $("div.comments ol").append(commentHtml)
-          //with each comment data, append an LI to the OL with the comment content
+           <li>${comment.content}</li>`
+       $("div.review-comments-"+id).append(commentHtml)
+
        })
      })
      e.preventDefault();
 })
-
+})
 
 
 $(function(){
   $("#new_comment").on("submit", function(e){
-    e.preventDefault()
     $.ajax({
       type: ($("input[name='_method']").val() || this.method),
       url: this.action,
       data: $(this).serialize(),
       success: function(data){
-        $("div.comments").html("");
-        const $ol = $("div.comments ol")
-        $ol.append(data);
+        $("div.comments ol").html("");
+        const loadComments = $("div.comments ol")
+        loadComments.append(data);
       }
-    });
+    })
+  e.preventDefault()
   })
-})
 })

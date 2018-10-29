@@ -10,15 +10,13 @@
       <%= @review.body %></p>
   </div>
 
-<div class="comments">
-  <ol>
-    <%= render '/comments/comments' %>
-  </ol>
-</div>
+  <div class="review-comments-<%=@review.id%>">
+    <ol>
+    </ol>
+  </div>
 
-<div id="load-comments">
+  
   <a class="load-comments" href="/reviews/<%=@review.id%>">Show all comments</a>
-</div>
 
       <%= form_for(@comment, :url => review_comments_path(@review)) do |f|  %>
       <%= f.text_area :content %>

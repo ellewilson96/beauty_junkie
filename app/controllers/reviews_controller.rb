@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_product, only: [:new, :create, :edit]
+  before_action :set_product, only: [:new, :create, :edit, :index]
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
@@ -12,7 +12,6 @@ class ReviewsController < ApplicationController
     respond_to do |f|
      f.html
      f.json {render json: @reviews}
-   @product = Product.find(params[:product_id])
  end
   end
 
@@ -20,8 +19,8 @@ def show
   respond_to do |f|
       f.html
       f.json {render json: @review}
-    @comments = @review.comments
-    @comment = Comment.new
+  @comments = @review.comments
+  @comment = Comment.new
     end
 end
 
