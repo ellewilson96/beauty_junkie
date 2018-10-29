@@ -7,17 +7,15 @@ $(function(){
       data.forEach(brand => {
         if (brand.products.length !== 0) {
         let brandHtml = `
-      <div class="brand-header">${brand.name}</div>
-        <a href="/brands/${brand.id}/products">${brand.products.length} Product(s)</a>
-        <br><br>
-        <div class="product-list">
-
-        </div>`
+        <div class="brand-header">${brand.name}</div>
+        <a href="/products/new">Add a New Product</a> |
+        <a href="/products/${brand.products[0].id}"> View Existing Products </a>
+      <br>`
         $('div#page-body').append(brandHtml)
     }    else {
       let brandHtml =
       `<div class="brand-header">${brand.name}</div>
-      <a href="/products/new">Add a New Product</a><br><br>`
+      <a href="/products/new">Add a New Product</a><br>`
         $('div#page-body').append(brandHtml)
       }
     })
@@ -26,20 +24,16 @@ $(function(){
 
 function loadProducts() {
   $.get(this.href+'.json', function(data) {
+    $('div.product-list').html("")
     data.forEach(brand => {
-      if (brand.products.length !== 0) {
-      $('div.product-list').html("")
       let productHtml =
       `<ol>
-      <li>${brand.products}
+      <li>${brand.products.name}
       </li>
       </ol>`
       $('div.product-list').append(productHtml)
-    } else {
-        let productHtml = `Add a new product`
-      }
-})
-})
+      })
+    })
 }
 
 

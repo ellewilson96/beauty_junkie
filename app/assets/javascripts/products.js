@@ -23,8 +23,9 @@ $(function(){
 
   function getProducts() {
       $('div#page-body').html(`<div class="title">Latest Products</div>`)
-    $.get(`/products.json`, function(data) {
-      data.forEach(product => {
+    $.get('/products.json', function(data) {
+      data.forEach(productNew => {
+        const product = productNew
         const id = product.id
         const productHtml = `
         <div class="product-header"><a href="/products/${product.id}">${product.name}</a> by <a href="/brands/${product.brand.id}">${product.brand.name}</a>
@@ -38,7 +39,30 @@ $(function(){
     })
   }
 
+  function nextProduct() {
+    $(`div#page-body`).html(``)
+    $.get('/products.json', function(data) {
+      data.forEach(product => {
+      const nextId = product.id+1
+      let nextProduct = data[product.id+1]
+      let nextProductHtml = `
+      <div class="product-header">
+      <a href="/products/${nextId}">${nextProduct.name}</a> by
+      <a href="/brands/${nextProduct.brand.id}">${nextProduct.brand.name}</a>
+        </div>
 
+          <div class="product-description"> ${nextProduct.description} <br>
+          <p>${nextProduct.ingredient_list}</p><br>
+          <a href="/products/${nextId}/reviews">View All Reviews</a> | <a href="/products/${nextId}/reviews/new">Write a Review</a>
+          </div>
+
+          <div class="footer-links">
+            <a href="/products/${nextId}" class="next-product">View Next Product</a>
+          </div>`
+      $('div#page-body').append(nextProductHtml)
+    })
+    })
+  }
 
   function attachEventListeners() {
 
@@ -47,5 +71,9 @@ $(function(){
         getProducts()
     })
 
+    $('a.next-product').on('click', function(e) {
+    e.preventDefault();
+      nextProduct()
+  })
 }
 })

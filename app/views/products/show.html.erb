@@ -7,4 +7,8 @@
   <p><%= @product.ingredient_list %></p><br>
     <a href="/products/<%= @product.id %>/reviews">View All Reviews</a> |
     <a href="/products/<%= @product.id %>/reviews/new">Write a Review</a>
-  </div
+  </div>
+
+<div class="footer-links">
+  <a href="/products/<%=@product.id%>" class="next-product">View Next Product</a>
+</div>
