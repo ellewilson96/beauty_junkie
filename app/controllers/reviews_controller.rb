@@ -29,7 +29,7 @@ end
      @review.product_id = @product.id
        respond_to do |f|
          if @review.save
-         f.html { redirect_to @review, notice: 'Post was successfully created.' }
+         f.html { redirect_to @review, notice: 'Review was successfully created.' }
           f.json { render :show, status: :created, location: @review }
       else
          f.html { render :new }

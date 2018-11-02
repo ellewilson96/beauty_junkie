@@ -1,0 +1,18 @@
+<div class="title">Write a New Review</div>
+<div class="review_form">
+
+
+  <%= form_for @review do |f| %>
+
+    <%= f.label :title %>:
+    <%= f.text_field :title %><br>
+
+    <%= f.label :body %>:
+    <%= f.text_area :body %><br>
+
+    <%= f.label :name, "Product Name" %>:
+    <%= f.collection_select(:product_id, Product.order('name ASC').all, :id, :name, :prompt => 'Please Select') %><br>
+
+    <%= f.submit %>
+  <% end %>
+</div>
