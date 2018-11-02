@@ -7,13 +7,21 @@
   <div class="review-content">
     <p><%= review.body[0...50] %></p>
 </div>
-    <a class="load-comments" href="/reviews/<%=review.id%>/comments">Comments</a>
-    <div class="comments">
-    </div>
-  <% end %>
 <br>
 
+<% if review.comments.present? %>
 
+<div id="load-comments">
+  <br><a href="/reviews/<%=review.id%>" class="load-comments">Show all comments</a>
+  <div class="review-comments-<%=review.id%>">
+    <ol>
+    </ol>
+  </div>
+</div>
+<% else %>
+<a href="/reviews/<%=review.id%>">Add a New Comment</a> 
+<% end %>
+<% end %>
 
 <div class="footer-links">
     <%= link_to "Write a New Review", new_product_review_path(@product.id) %>

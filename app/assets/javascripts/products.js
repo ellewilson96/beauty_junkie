@@ -57,7 +57,7 @@ $(function(){
           </div>
 
           <div class="footer-links">
-            <a href="/products/${nextId}" class="next-product">View Next Product</a>
+          <a href="/products/${nextId}" class="next-product">View Next Product</a>
           </div>`
       $('div#page-body').append(nextProductHtml)
     })

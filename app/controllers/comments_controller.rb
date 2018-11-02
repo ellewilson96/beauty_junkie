@@ -10,14 +10,16 @@ class CommentsController < ApplicationController
    end
   end
 
- def create
-   @comment = @review.comments.build(comments_params)
-   if @comment.save
-     render 'comments/show', :layout => false
-   else
-     render "reviews/show"
-   end
- end
+  def create
+    @comment = @review.comments.build(comments_params)
+    if @comment.save
+      # I need to render something that just has the LI I want...
+      # why not just create a comments/show view that shows the LI of one comment?
+      render 'comments/show', :layout => false
+    else
+      render "reviews/show"
+    end
+  end
 
  private
 
@@ -26,7 +28,7 @@ class CommentsController < ApplicationController
   end
 
   def comments_params
-    params.require(:comment).permit(:content, :review_id)
+    params.require(:comment).permit(:content)
   end
 
 end

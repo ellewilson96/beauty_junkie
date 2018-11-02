@@ -2,12 +2,11 @@
 
 <div class="review-container">
   <div class="review-header">
-    <h2><%= @review.title %></h2>
-      <h3>written by <%= @review.user.email %></h3>
+    <div class="title"><%= @review.title %></div>
+      written by <%= @review.user.email %>
 </div>
-  <p>
   <div class="review-body">
-      <%= @review.body %></p>
+      <p><%= @review.body %></p>
   </div>
 
   <div class="review-comments-<%=@review.id%>">
@@ -15,7 +14,7 @@
     </ol>
   </div>
 
-  
+<br>
   <a class="load-comments" href="/reviews/<%=@review.id%>">Show all comments</a>
 
       <%= form_for(@comment, :url => review_comments_path(@review)) do |f|  %>

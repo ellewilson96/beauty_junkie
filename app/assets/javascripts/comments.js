@@ -23,8 +23,9 @@ $(function(){
       url: this.action,
       data: $(this).serialize(),
       success: function(data){
-        $("div.comments ol").html("");
-        const loadComments = $("div.comments ol")
+        $('div.review-comments-').html("");
+        let id = data.review_id
+        const loadComments = $("div.review-comments-"+id)
         loadComments.append(data);
       }
     })
