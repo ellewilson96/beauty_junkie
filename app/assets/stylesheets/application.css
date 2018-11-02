@@ -342,6 +342,11 @@ h4 {
   font-size: 15px;
 }
 
+.brand-header a {
+  color: #EEEEEE;
+  font-style: italic;
+}
+
 .review_form {
   text-align: center;
   line-height: 18px;

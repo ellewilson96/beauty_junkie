@@ -7,15 +7,14 @@ $(function(){
       data.forEach(brand => {
         if (brand.products.length !== 0) {
         let brandHtml = `
-        <div class="brand-header">${brand.name}</div>
-        <a href="/products/new">Add a New Product</a> |
+        <div class="brand-header"><a href="brands">${brand.name}</a><br>
         <a href="/products/${brand.products[0].id}"> View Existing Products </a>
+        </div>
       <br>`
         $('div#page-body').append(brandHtml)
     }    else {
       let brandHtml =
-      `<div class="brand-header">${brand.name}</div>
-      <a href="/products/new">Add a New Product</a><br>`
+      `<div class="brand-header"><a href="/products">${brand.name}</a></div><br>`
         $('div#page-body').append(brandHtml)
       }
     })
