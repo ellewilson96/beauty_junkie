@@ -3,7 +3,7 @@
 
 <% @reviews.each do |review| %>
   <div class="review-header">
-      <%= review.user.email%><br> left a review
+      <i><%= review.user.email%></i> left a review
     </div>
   <div class="review-content">"<%=review.title%>"
 

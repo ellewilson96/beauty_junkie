@@ -2,12 +2,10 @@
 <% @product.reviews.each do |review| %>
   <div class="review-header">
     <%= review.title %>
-  by <%= review.user.email %>
   </div>
   <div class="review-content">
-    <p><%= review.body[0...50] %></p>
+    <p><a href="/reviews/<%=review.id%>">"<%= review.body[0...50] %>..."</a> <br>by <i><%= review.user.email %></i></p>
 </div>
-<br>
 
 <% if review.comments.present? %>
 
@@ -19,7 +17,7 @@
   </div>
 </div>
 <% else %>
-<a href="/reviews/<%=review.id%>">Add a New Comment</a> 
+<a href="/reviews/<%=review.id%>">Add a New Comment</a>
 <% end %>
 <% end %>
 
