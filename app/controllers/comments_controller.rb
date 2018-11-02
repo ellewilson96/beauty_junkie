@@ -13,9 +13,7 @@ class CommentsController < ApplicationController
   def create
     @comment = @review.comments.build(comments_params)
     if @comment.save
-      # I need to render something that just has the LI I want...
-      # why not just create a comments/show view that shows the LI of one comment?
-      render 'comments/show', :layout => false
+      render json: @comment, layout: false
     else
       render "reviews/show"
     end

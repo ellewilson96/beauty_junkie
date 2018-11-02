@@ -21,9 +21,10 @@
 $(function(){
   attachEventListeners()
 
-  function getProducts() {
+  function getProducts(e) {
+    e.preventDefault();
       $('div#page-body').html(`<div class="title">Latest Products</div>`)
-    $.get('/products.json', function(data) {
+    $.get('/products', function(data) {
       data.forEach(productNew => {
         const product = productNew
         const id = product.id
@@ -36,7 +37,7 @@ $(function(){
             </div><br>`
         $('div#page-body').append(productHtml)
       })
-    })
+    }, "json")
   }
 
   function nextProduct() {
@@ -66,10 +67,7 @@ $(function(){
 
   function attachEventListeners() {
 
-      $('a.all-products').on('click', function(e) {
-      e.preventDefault();
-        getProducts()
-    })
+      $('a.all-products').on('click', getProducts)
 
     $('a.next-product').on('click', function(e) {
     e.preventDefault();

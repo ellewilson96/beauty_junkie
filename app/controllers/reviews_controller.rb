@@ -17,11 +17,11 @@ class ReviewsController < ApplicationController
 
 def show
   respond_to do |f|
-      f.html
-      f.json {render json: @review}
-  @comments = @review.comments
-  @comment = Comment.new
-    end
+   f.html
+   f.json {render json: @review}
+   @comments = @review.comments
+   @comment = @review.comments.build
+ end
 end
 
  def create
@@ -71,6 +71,5 @@ end
   def review_params
     params.require(:review).permit(:title, :body, :product_id)
   end
-
 
 end

@@ -8,14 +8,18 @@
   <div class="review-body">
       <p><%= @review.body %></p>
   </div>
-
-  <div class="review-comments-<%=@review.id%>">
+  <div class="comments-list">
     <ol>
     </ol>
   </div>
 
-<br>
-  <a class="load-comments" href="/reviews/<%=@review.id%>">Show all comments</a>
+  <div class="review-links">
+  <%= link_to "Edit Review", edit_review_path(@review.id) %>
+
+
+  <div id="load-comments">
+    <br><a href="/reviews/<%=@review.id%>" class="load-comments">Show all comments</a>
+  </div>
 
       <%= form_for(@comment, :url => review_comments_path(@review)) do |f|  %>
       <%= f.text_area :content %>
