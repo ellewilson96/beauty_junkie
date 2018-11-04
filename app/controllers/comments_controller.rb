@@ -2,11 +2,10 @@ class CommentsController < ApplicationController
   before_action :set_review
 
   def index
-    @comments = @review.comments.order(created_at: :asc)
-
     respond_to do |f|
       f.html
-      f.json {render json: @review, layout: false}
+      f.json {render json: @comments, layout: false}
+      @comments = @review.comments.order(created_at: :asc)
    end
   end
 
@@ -22,7 +21,7 @@ class CommentsController < ApplicationController
  private
 
  def set_review
-    @review = Review.find(params[:review_id])
+    @review = Review.find_by(params[:review_id])
   end
 
   def comments_params

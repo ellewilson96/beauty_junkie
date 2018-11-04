@@ -1,7 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_product, only: [:new, :create, :edit, :index]
   before_action :set_review, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
 
   def new
     @review = Review.new
@@ -16,12 +15,13 @@ class ReviewsController < ApplicationController
   end
 
 def show
-  respond_to do |f|
+   respond_to do |f|
    f.html
-   f.json {render json: @review}
+   f.json {render json: @review, layout: false}
    @comments = @review.comments
    @comment = @review.comments.build
- end
+   f.json {render json: @comment, layout: false}
+end
 end
 
  def create

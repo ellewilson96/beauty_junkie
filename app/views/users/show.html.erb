@@ -1,29 +1,30 @@
 <div class="title">Your Product Reviews</div>
 
-<% @reviews.each do |review| %>
 
 <div class="review-header">
-  <%= review.created_at.strftime("%A, %d %b %Y at %l:%M %p") %><br>
+  <%= @review.created_at.strftime("%A, %d %b %Y at %l:%M %p") %><br>
   <%= @product.name %> by <%= @product.brand.name %><br></div>
-<div class="review-title"><%= review.title %>
+<div class="review-title"><%= @review.title %>
 </div>
 
 <div class="review-content">
-  <%= review.body %>
-</div>
-
-<div class="comments-list">
-  <ol>
-  </ol>
+  <%= @review.body %>
 </div>
 
 <div class="review-links">
-<%= link_to "Edit Review", edit_review_path(review.id) %>
+<%= link_to "Edit Review", edit_review_path(@review.id) %>
 
 
-<div id="load-comments">
-  <br><a href="/reviews/<%=review.id%>" class="load-comments">Show all comments</a>
+<% if @review.comments.present? %>
+<br><a href="/reviews/<%=@review.id%>" class="load-comments" id="show">Show all comments</a>
+<br>
+
+<div class="review-comments-<%=@review.id%>">
 </div>
+
+<% else %>
+  <a href="/reviews/<%=@review.id%>">Add a New Comment</a>
+<% end %>
 
 
   <div id="new-comment">
@@ -33,5 +34,3 @@
       <% end %>
     </div>
   </div>
-
-      <% end %>

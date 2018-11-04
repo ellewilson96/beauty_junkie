@@ -1,1 +1,4 @@
-  <li><%= @comment.content %></li>
+<% @comments.each do |comment| %>
+ <li><%= comment.content %></li>
+ <p><%= comment.content %> ~ <%= comment.user.email %></p>
+ <% end %>

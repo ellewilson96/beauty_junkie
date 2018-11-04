@@ -8,18 +8,21 @@
   <div class="review-body">
       <p><%= @review.body %></p>
   </div>
-  <div class="comments-list">
-    <ol>
-    </ol>
-  </div>
+
 
   <div class="review-links">
   <%= link_to "Edit Review", edit_review_path(@review.id) %>
 
 
-  <div id="load-comments">
-    <br><a href="/reviews/<%=@review.id%>" class="load-comments">Show all comments</a>
+  <% if @review.comments.present? %>
+  <br><a href="/reviews/<%=@review.id%>" class="load-comments">Show all comments</a>
+  <div class="review-comments-<%=@review.id%>">
   </div>
+
+  <% else %>
+    <a href="/reviews/<%=review.id%>">Add a New Comment</a>
+  <% end %>
+
 
       <%= form_for(@comment, :url => review_comments_path(@review)) do |f|  %>
       <%= f.text_area :content %>
