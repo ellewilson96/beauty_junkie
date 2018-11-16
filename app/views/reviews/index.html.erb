@@ -10,7 +10,10 @@
 <% if review.comments.present? %>
 <br><a href="/reviews/<%=review.id%>" class="load-comments">Show all comments</a>
 
+
+<div class="review-<%=review.id%>">
 <div class="review-comments-<%=review.id%>">
+</div>
 </div>
 
 <% else %>

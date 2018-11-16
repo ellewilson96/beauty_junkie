@@ -24,7 +24,7 @@
   <% end %>
 
 
-      <%= form_for(@comment, :url => review_comments_path(@review)) do |f|  %>
+      <%= form_for(@review.comments.build, :url => review_comments_path(@review)) do |f|  %>
       <%= f.text_area :content %>
 
       <p><%= f.submit %></h3></p>

@@ -15,9 +15,8 @@ $(function(){
 Comment.prototype.renderComment = function() {
   let commentHtml =
   `
-  <ol>
   <li>${this.content}</li>
-  </ol>`
+  `
   return commentHtml
 }
 
@@ -25,8 +24,18 @@ function getComments(e) {
   e.preventDefault();
     $("div.review-comments-").html("")
      $.get(this.href+'.json', function(data) {
-       const comments = data.comments
-         comments.forEach(commentNew => {
+       data.comments.sort(function(a, b) {
+         var contentA = a.content.toUpperCase();
+         var contentB = b.content.toUpperCase();
+         if (contentA < contentB) {
+           return -1;
+         }
+         if (contentA > contentB) {
+           return 1;
+         }
+         return 0;
+       })
+         data.comments.forEach(commentNew => {
           let lc = new Comment(commentNew).renderComment()
           let id = commentNew.review_id
        $("div.review-comments-"+id).append(lc)
@@ -58,10 +67,8 @@ function attachEventListeners() {
 
     $('a.load-comments').on('click', getComments)
 
-      $('a.load-comments').click(function(){
-        $("#hide").hide();
-        $("#show").show();
-
+      $('a.hide-comments').click(function(){
+        $("div.review-comments-"+id).toggle(false);
       });
 
     $("#new_comment").on("submit", createComments)

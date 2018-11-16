@@ -18,9 +18,9 @@ def show
    respond_to do |f|
    f.html
    f.json {render json: @review, layout: false}
-   @comments = @review.comments
-   @comment = @review.comments.build
-   f.json {render json: @comment, layout: false}
+   # @comments = @review.comments
+   # @comment = @review.comments.build
+   # f.json {render json: @comment, layout: false}
 end
 end
 
